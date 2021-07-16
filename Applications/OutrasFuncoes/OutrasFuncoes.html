@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <title>Bender | Outras Funções</title>
+    <link rel="icon" href="../../_common/Icon.png">
+    <link rel='stylesheet' type='text/css' href='OutrasFuncoes_style.css'>
+</head>
+
+<body>
+    <div id="container">
+        <div id="opcoes">
+            <div id="verificarMarca">
+                <span>Verificar código da marca na VTEX</span><br>
+                <input type="text" id="Marca" name="Marca" placeholder="Nome da marca">
+                <button class="botoes" onclick='Listar()'>Lista</button>
+                <button class="botoes" onclick='VerificarMarca()'>Verificar</button>
+            </div>
+        </div>
+        <div id="containerRodape">
+            <button id = "buttonVoltar" onclick="parent.location='../../index.html'">Voltar</button>
+        </div>
+    </div>
+    <script src="../../_common/Common_script.js"></script>
+    <script src="OutrasFuncoes_script.js"></script>
+    <script src="array_Marcas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+<style>
+    img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+        display: none;
+    }
+</style>
+
+</html>

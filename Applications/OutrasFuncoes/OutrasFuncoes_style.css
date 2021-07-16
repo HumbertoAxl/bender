@@ -1,0 +1,75 @@
+body {
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-image: url("../../_common/Background_Body.jpg");
+background-size: auto;
+}
+
+#container {
+background-image: url("../InserirMarca/_assets/Container_InserirMarca.jpg");
+border: white;
+border-style: solid;
+border-radius: 10px;
+width: 400px;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: 500px;
+
+}
+
+textarea {
+    height: 40%;
+    width: 85%;
+}
+
+button {
+    height: 30px;
+    width: 75px;
+    margin-top: 8px;
+    float: right;
+}
+.botoes:nth-of-type(1) {
+    margin-right: 30px;
+}
+
+.botoes:nth-of-type(2) {
+    margin-right: 10px;
+}
+
+#menu {
+    color: white;   
+    padding-top: 0px;
+    text-align: center;
+}
+#opcoes {
+    margin-left: 30px;
+}
+
+#verificarMarca {
+margin-top: 10px;
+font-size: 1em;
+color:white;
+}
+
+span {
+font-weight: 600;
+}
+
+#Marca {
+    width: 40%;
+    height: 30px;
+    margin-right: 30px;
+    margin-top: 8px;
+    float: left;
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: #000;
+}
+
+#containerRodape {
+    margin-top: 100%;
+}
+
+#buttonVoltar {
+    float:left;
+    margin-left: 30px;
+}

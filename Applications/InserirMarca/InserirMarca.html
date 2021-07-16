@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>Bender | Inserir Marca</title>
+    <link rel="icon" href="../../_common/Icon.png">
+    <link rel='stylesheet' type='text/css' href='InserirMarca_style.css'>
+</head>
+
+<body>
+    <div id="container">
+        <div id="inserirMarca">
+            <p>Informe a marca<input type="text" id="Marca" name="Marca"></p>
+        </div>
+        <div id="menu">
+            <p>Insira o código</p>
+            <textarea id="codigo"></textarea>
+        </div>
+        <div id="botoes">
+            <button onclick="parent.location='../../index.html'">Voltar</a></button>
+            <button onclick="Inserir()">Concluir</button>
+        </div>
+        <div id="resultado">
+            <span id="seta" style="font-size: 1.5em"> ⬇</span><br>
+            <span id="resultadoCopiar" onclick="CopiarResultado()">Clique aqui para copiar o resultado</span>
+        </div>
+    </div>
+    </div>
+    <textarea id="textResultado" style="height: 0px; width: 0px; padding: 0; margin: 0;"></textarea>
+    <script src="../../_common/Common_script.js"></script>
+    <script src="InserirMarca_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+<style> img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] { display: none;} </style>
+
+</html>

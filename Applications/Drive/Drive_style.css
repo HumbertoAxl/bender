@@ -1,0 +1,72 @@
+body {
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-image: url("../../_common/Background_Body.jpg");
+background-size: auto;
+}
+
+#container {
+background-image: url("../InserirMarca/_assets/Container_InserirMarca.jpg");
+border: white;
+border-style: solid;
+border-radius: 10px;
+width: 550px;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: 500px;
+}
+
+button {
+    height: 30px;
+    width: 75px;
+    padding: 0;
+}
+
+#botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    top: 40%;
+    position: relative;
+}
+
+#table_links {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+  #table_links td, #table_links th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #table_links tr:nth-child(even){background-color: #f2f2f2;}
+
+  #table_links tr:nth-child(odd) {
+      background-color: white;
+  }
+  
+  #table_links tr:hover {background-color: #ddd;}
+  
+  #table_links th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+ }
+ #table_links th:nth-child(1) {
+    border-top-left-radius: 5px;
+ }
+
+ #table_links th:nth-child(3) {
+    border-top-right-radius: 5px;
+    text-align: center;
+ }
+ .swal2-styled.swal2-confirm {
+     padding:0 !important;
+ }
+ .swal2-content {
+    text-align: left !important;
+}
