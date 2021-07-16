@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/HumbertoAxl/bender/issues"
   },
-  "homepage": "https://github.com/HumbertoAxl/bender#readme"
+  "homepage": "https://github.com/HumbertoAxl/bender#readme",
+  "engines": {
+    "node": "12.x"
+  }
 }
