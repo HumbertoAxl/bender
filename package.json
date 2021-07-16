@@ -19,5 +19,6 @@
   "homepage": "https://github.com/HumbertoAxl/bender#readme",
   "engines": {
     "node": "^12.x"
-  }
+  },
+  "heroku-run-build-script": true
 }
