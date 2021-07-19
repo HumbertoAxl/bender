@@ -1,15 +1,15 @@
 // let produto = document.getElementById('linkProduto').value
+import puppeteer, { launch } from 'puppeteer';
 
 async function pegarMarca() {
     let marca, codigo
-    const puppeteer = require('puppeteer');
     // const fs = require('fs');
     const { produtos } = [
         ['https://www.lojadomecanico.com.br/produto/140035/21/227/base-retangular-6-pol-para-lixadeira-ch-o-50--chiaperini-13711-'],
         ['https://www.lojadomecanico.com.br/produto/122747/2/253/cabeca-branco-em-abs-para-martelo-922-44-robust-923-44e']
     ]
     let resultado = [];
-    let browser = await puppeteer.launch({
+    let browser = await launch({
         args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -88,7 +88,7 @@ async function goto_LojadoMecanico(page, i, browser, url, marca, codigo, puppete
 }
 
 async function goto_DutraMaquinas(page, i, browser, url) {
-    browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+    browser = await launch({ headless: true, defaultViewport: null });
     page = await browser.newPage();
     try {
         await page.goto(url, { waitUntil: 'networkidle2' })
@@ -122,7 +122,7 @@ async function goto_DutraMaquinas(page, i, browser, url) {
 }
 
 async function goto_FerramentasKennedy(page, i, browser, url) {
-    browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+    browser = await launch({ headless: true, defaultViewport: null });
     page = await browser.newPage();
     try {
         await page.goto(url, { waitUntil: 'networkidle2' })
