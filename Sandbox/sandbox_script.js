@@ -1,7 +1,7 @@
 // let produto = document.getElementById('linkProduto').value
-import puppeteer, { launch } from 'puppeteer';
+let puppeteer = require('puppeteer');
 
-async function pegarMarca() {
+async function pegarMarca(puppeteer) {
     let marca, codigo
     // const fs = require('fs');
     const { produtos } = [
@@ -9,7 +9,7 @@ async function pegarMarca() {
         ['https://www.lojadomecanico.com.br/produto/122747/2/253/cabeca-branco-em-abs-para-martelo-922-44-robust-923-44e']
     ]
     let resultado = [];
-    let browser = await launch({
+    let browser = await puppeteer.launch({
         args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -88,7 +88,7 @@ async function goto_LojadoMecanico(page, i, browser, url, marca, codigo, puppete
 }
 
 async function goto_DutraMaquinas(page, i, browser, url) {
-    browser = await launch({ headless: true, defaultViewport: null });
+    browser = await puppeteer.launch({ headless: true, defaultViewport: null });
     page = await browser.newPage();
     try {
         await page.goto(url, { waitUntil: 'networkidle2' })
@@ -122,7 +122,7 @@ async function goto_DutraMaquinas(page, i, browser, url) {
 }
 
 async function goto_FerramentasKennedy(page, i, browser, url) {
-    browser = await launch({ headless: true, defaultViewport: null });
+    browser = await puppeteer.launch({ headless: true, defaultViewport: null });
     page = await browser.newPage();
     try {
         await page.goto(url, { waitUntil: 'networkidle2' })
