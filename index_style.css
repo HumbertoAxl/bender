@@ -1,0 +1,118 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../_common/Background_Body.jpg");
+    background-size: auto;
+}
+#container {
+    background-color: #24375c;
+    border: white;
+    border-style: solid;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 488px;
+    cursor: default;
+}
+#menu {
+    color: white;
+}
+button {
+    -webkit-text-stroke-width: 0;
+    float: right;
+    margin-right: 20px;
+    height: 25px;
+    width: 65px;
+    margin-top: 10px;
+    padding: 0;
+}
+.opcao {
+    height: 75px;
+    -webkit-text-stroke-width: 0;
+}
+.background {
+    opacity: 0.2;
+}
+#menuHeader {
+    border-top-left-radius: 6.5px;
+    border-top-right-radius: 6.5px;
+    height: 35px;
+    border-bottom: 2px white solid;
+    font-weight: 700;
+    font-size: 1em;
+    display: block;
+    text-align: center;
+}
+#menuHeaderText {
+    margin-top: 9px;
+    display: inline-block;
+}
+.opcao:nth-child(2) {
+    background-color: #4EA5D262;
+}
+.opcao:nth-child(3) {
+    background-color: #3EBCB862;
+}
+.opcao:nth-child(4) {
+    background-color: #59538799;
+}
+.opcao:nth-child(5) {
+    background-color: #2651cc6b;
+}
+.opcao:nth-child(6) {
+    background-color: #7900b16b;
+}
+.opcao:nth-child(7) {
+    background-color: #260a6b;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;
+    border-bottom: 2px white solid;
+}
+.opcao:nth-child(2):hover{
+    background-color:#4EA5D2cf;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(3):hover{
+    background-color:#3EBCB8cf;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(4):hover {
+    background-color: #9189cca3;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(5):hover{
+    background-color: #1b4fdfce;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(6):hover{
+    background-color: #7900b1bd;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(7):hover{
+    background-color: #481abd;
+    transition: background-color 0.3s;
+}
+.opcaoBloco {
+margin-left: 12px;
+display: inline-block;
+}
+.opcaoText {
+    margin-top: 15px;
+    font-size: 1.4em;
+    font-weight: 700;
+    display: inline-block;
+}
+.opcaoDescription {
+    font-size: 0.8em;
+    font-weight: 100;
+}
+img {
+    margin-top: 12px;
+    margin-left: 20px;
+    float: left;
+}
+.swal2-styled {
+    padding: 0 !important;
+    height: 30px !important;
+}
