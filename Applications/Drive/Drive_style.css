@@ -9,7 +9,7 @@ background-image: url("../InserirMarca/_assets/Container_InserirMarca.jpg");
 border: white;
 border-style: solid;
 border-radius: 10px;
-width: 550px;
+width: 650px;
 margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
@@ -26,7 +26,7 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 30px;
-    top: 40%;
+    top: 8%;
     position: relative;
 }
 

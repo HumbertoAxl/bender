@@ -2,10 +2,10 @@
   "name": "bender",
   "version": "0.7.0",
   "description": "",
-  "main": "index.php",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "engines": {
     "node": "^12.x"
   },
-  "heroku-run-build-script": true
+  "heroku-run-build-script": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "ejs": "^1.0.0"
+  }
 }
