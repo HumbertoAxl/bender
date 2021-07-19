@@ -1,15 +1,22 @@
-// create an express app
-const express = require("express")
-const app = express()
+var express = require('express');
+var bodyParser = require('body-parser');
 
-// use the express-static middleware
-app.use(express.static("public"))
+var app = express();
 
-// define the first route
-app.get("/", function (req, res) {
-  res.render('./index.html')
-})
+app.set('port', (process.env.PORT || 5000));
+app.use(express.static(__dirname + '/public'));
+app.set('views', __dirname + '/public/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
-// start the server listening for requests
-app.listen(process.env.PORT || 3000, 
-	() => console.log("Server is running..."));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+
+app.get('*', function(req, res){
+    res.render('index.html');
+});
+
+app.listen(app.get('port'), function() {
+});
