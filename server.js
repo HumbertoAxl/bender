@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
-    res.render('./Index/index.html');
+    res.render('./index.html');
 });
 
 app.listen(app.get('port'), function() {
