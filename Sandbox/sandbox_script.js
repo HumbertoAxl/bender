@@ -1,18 +1,17 @@
 // let produto = document.getElementById('linkProduto').value
 
-const puppeteer = require('puppeteer');
-// const fs = require('fs');
-const { produtos } = require('./produtos.js')
-let resultado = [];
-let marca, codigo
-
-async function pegarMarca ()  {
+async function pegarMarca() {
+    let marca, codigo
+    const puppeteer = require('puppeteer');
+    // const fs = require('fs');
+    const { produtos } = require('./produtos.js')
+    let resultado = [];
     let browser = await puppeteer.launch({ headless: true, defaultViewport: null });
     let page = await browser.newPage();
     for (let i = 0; i < produtos.length; i++) {
         let url = produtos[i].toString()
         if (url.includes('lojadomecanico')) {
-            await goto_LojadoMecanico(page, i, browser, url)
+            await goto_LojadoMecanico(page, i, browser, url, marca, codigo, puppeteer, resultado)
         } else if (url.includes('ferramentaskennedy')) {
             await goto_FerramentasKennedy(page, i, browser, url)
         } else if (url.includes('dutramaquinas')) {
@@ -31,7 +30,7 @@ pegarMarca().then((resultado) => {
     // fs.writeFileSync('./Work/GetProductsInfo/ScrapeMarcasInfo.json', fileContent);
 })
 
-async function goto_LojadoMecanico(page, i, browser, url) {
+async function goto_LojadoMecanico(page, i, browser, url, marca, codigo, puppeteer, resultado) {
     browser = await puppeteer.launch({ headless: true, defaultViewport: null });
     page = await browser.newPage();
     try {
@@ -55,7 +54,7 @@ async function goto_LojadoMecanico(page, i, browser, url) {
                     tratarCodigo = tratarCodigo.substring(1)
                 }
                 if (tratarCodigo[tratarCodigo.length - 1] = ' ') {
-                    tratarCodigo = tratarCodigo.substring(0,[tratarCodigo.length-1])
+                    tratarCodigo = tratarCodigo.substring(0, [tratarCodigo.length - 1])
                 }
                 // tratarCodigo = tratarCodigo.match(/Ref\.: ?([A-Z\-0-9]+)/i)
                 return tratarCodigo
@@ -90,7 +89,7 @@ async function goto_DutraMaquinas(page, i, browser, url) {
                     tratarCodigo = tratarCodigo.substring(1)
                 }
                 if (tratarCodigo[tratarCodigo.length - 1] = ' ') {
-                    tratarCodigo = tratarCodigo.substring(0,[tratarCodigo.length-1])
+                    tratarCodigo = tratarCodigo.substring(0, [tratarCodigo.length - 1])
                 }
                 return tratarCodigo
             } catch (e) {

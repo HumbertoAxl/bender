@@ -18,5 +18,9 @@ app.get('/', function(req, res){
     res.render('./index.html');
 });
 
+app.get('/Sandbox/', function(req, res){
+  res.redirect('/')
+});
+
 app.listen(app.get('port'), function() {
 });
