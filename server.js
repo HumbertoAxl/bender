@@ -18,7 +18,7 @@ app.get('/', function(req, res){
     res.render('./index.html');
 });
 
-app.get('/Sandbox/', function(req, res){
+app.get('/Sandbox/sandbox.html', function(req, res){
   res.redirect('/')
 });
 

@@ -4,9 +4,19 @@ async function pegarMarca() {
     let marca, codigo
     const puppeteer = require('puppeteer');
     // const fs = require('fs');
-    const { produtos } = require('./produtos.js')
+    const { produtos } = [
+        ['https://www.lojadomecanico.com.br/produto/140035/21/227/base-retangular-6-pol-para-lixadeira-ch-o-50--chiaperini-13711-'],
+        ['https://www.lojadomecanico.com.br/produto/122747/2/253/cabeca-branco-em-abs-para-martelo-922-44-robust-923-44e']
+    ]
     let resultado = [];
-    let browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+    let browser = await puppeteer.launch({
+        args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],
+    headless: true,
+    defaultViewport: null
+    });
     let page = await browser.newPage();
     for (let i = 0; i < produtos.length; i++) {
         let url = produtos[i].toString()
@@ -31,7 +41,14 @@ pegarMarca().then((resultado) => {
 })
 
 async function goto_LojadoMecanico(page, i, browser, url, marca, codigo, puppeteer, resultado) {
-    browser = await puppeteer.launch({ headless: true, defaultViewport: null });
+    browser = await puppeteer.launch({
+        args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+      ],
+    headless: true,
+    defaultViewport: null
+    });
     page = await browser.newPage();
     try {
         await page.goto(url, { waitUntil: 'networkidle2' })
