@@ -2,70 +2,77 @@
 
 <head>
     <title>Bender | Menu</title>
-    <link rel="icon" href=" ./_common/Icon.png">
-    <link rel='stylesheet' type='text/css' href='./Index/index_style.css'>
+    <link rel="icon" href=" ../_common/Icon.png">
+    <link rel='stylesheet' type='text/css' href='./index_style.css'>
 </head>
 
 <body>
     <div id="container">
         <div id="menu">
             <div id="menuHeader">
-                <span id='menuHeaderText'>Escolha a aplicação desejada</span>
+                <span id='menuHeaderText'>Bender | v0.7 | © Monkey Corporation</span>
             </div>
-            <div class="opcao" onclick="parent.location='./Applications/InserirMarca/InserirMarca.html'">
-                <img src="./Applications/InserirMarca/_assets/opcao_InserirMarca.png"></img>
+            <div class="opcao" onclick="parent.location='../Applications/InserirMarca/InserirMarca.html'">
+                <img src="../Applications/InserirMarca/_assets/opcao_InserirMarca.png"></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Inserir marca</span>
                     <br>
                     <span class="opcaoDescription">Acrescenta a marca no intervalo indicado</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./Applications/OrdenarAtributos/OrdenarAtributos.html'">
-                <img src="./Applications/OrdenarAtributos/_assets/opcao_OrdenarAtributos.png"></img>
+            <div class="opcao" onclick="parent.location='../Applications/OrdenarAtributos/OrdenarAtributos.html'">
+                <img src="../Applications/OrdenarAtributos/_assets/opcao_OrdenarAtributos.png"></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Ordenar atributos</span>
                     <br>
                     <span class="opcaoDescription">Atribui e lista todos atributos dos produtos indicados</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./Applications/TestarHTML/TestarHTML.html'">
-                <img src='./Applications/TestarHTML/_assets/opcao_TestarHTML.png'></img>
+            <div class="opcao" onclick="parent.location='../Applications/TestarHTML/TestarHTML.html'">
+                <img src='../Applications/TestarHTML/_assets/opcao_TestarHTML.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Teste de HTML</span>
                     <br>
                     <span class="opcaoDescription">Analisar e testar códigos HTMLs dos produtos</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./Applications/Drive/Drive.html'">
-                <img src='./Applications/Drive/_assets/opcao_Drive.png'></img>
+            <div class="opcao" onclick="parent.location='../Applications/Drive/Drive.html'">
+                <img src='../Applications/Drive/_assets/opcao_Drive.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Drive</span>
                     <br>
                     <span class="opcaoDescription">Modelos, tutoriais e arquivos da VTEX</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./Applications/OutrasFuncoes/OutrasFuncoes.html'">
-                <img src='./Applications/OutrasFuncoes/_assets/opcao_OutrasFuncoes.png'></img>
+            <div class="opcao" onclick="parent.location='../Applications/OutrasFuncoes/OutrasFuncoes.html'">
+                <img src='../Applications/OutrasFuncoes/_assets/opcao_OutrasFuncoes.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Outras funções</span>
                     <br>
                     <span class="opcaoDescription">Demais funcionalidades da aplicação</span>
                 </div>
             </div>
-        </div>
-        <div id='licenca'>
-            <span class="aboutUs">© Monkey Corporation</span>
-            <button onclick=Licenca()>Sobre nós</button>
-            <p style="color:white; margin-top: 0px; font-weight: 600;">v0.7.0 - Julho/2021</p>
+            <div class="opcao" onclick=emManutenção()>
+                <img src='./_assets/Manutenção.png'></img>
+                <div class="opcaoBloco">
+                    <span class="opcaoText">Novas funcionalidades</span>
+                    <br>
+                    <span class="opcaoDescription">Em breve</span>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../_common/Common_script.js"></script>
     <script>
         function Licenca() {
             Swal.fire({
                 html: '© Monkey Corporation 🐒<br>Since 2020<br>All Rights Reserved',
                 confirmButtonText: "Nice!"
             })
+        }
+        function emManutenção() {
+            sendMessage('Em construção, desculpe pelo inconveniente', 'info',null)
         }
     </script>
 

@@ -12,8 +12,8 @@ body {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    height: 500px;
-    cursor:default;
+    height: 488px;
+    cursor: default;
 }
 #menu {
     color: white;
@@ -35,19 +35,18 @@ button {
     opacity: 0.2;
 }
 #menuHeader {
-    background-color: rgba(122, 122, 122, 0.301);
     border-top-left-radius: 6.5px;
     border-top-right-radius: 6.5px;
-    height: 40px;
+    height: 35px;
     border-bottom: 2px white solid;
+    font-weight: 700;
+    font-size: 1em;
+    display: block;
+    text-align: center;
 }
 #menuHeaderText {
-    font-weight: 700;
-    font-size: 1.3em;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-    padding-top: 8px;
+    margin-top: 9px;
+    display: inline-block;
 }
 .opcao:nth-child(2) {
     background-color: #4EA5D262;
@@ -63,6 +62,12 @@ button {
 }
 .opcao:nth-child(6) {
     background-color: #7900b16b;
+}
+.opcao:nth-child(7) {
+    background-color: #260a6b;
+    border-bottom-left-radius: 6.5px;
+    border-bottom-right-radius: 6.5px;
+    border-bottom: 2px white solid;
 }
 .opcao:nth-child(2):hover{
     background-color:#4EA5D2cf;
@@ -81,7 +86,11 @@ button {
     transition: background-color 0.3s;
 }
 .opcao:nth-child(6):hover{
-    background-color: #8805c5c7;
+    background-color: #7900b1bd;
+    transition: background-color 0.3s;
+}
+.opcao:nth-child(7):hover{
+    background-color: #481abd;
     transition: background-color 0.3s;
 }
 .opcaoBloco {
@@ -97,16 +106,6 @@ display: inline-block;
 .opcaoDescription {
     font-size: 0.8em;
     font-weight: 100;
-}
-#licenca {
-    position: relative;
-    top: 30px;
-    margin-left: 20px;
-    font-weight: normal;
-}
-.aboutUs {
-    color:white;
-    font-weight: 600;
 }
 img {
     margin-top: 12px;

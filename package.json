@@ -23,6 +23,8 @@
   "heroku-run-build-script": true,
   "dependencies": {
     "express": "^4.17.1",
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "puppeteer": "^8.0.0",
+    "fs": "^0.0.1-security"
   }
 }
