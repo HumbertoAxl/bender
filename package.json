@@ -26,9 +26,6 @@
     "express": "^4.17.1",
     "ejs": "^1.0.0",
     "puppeteer": "^8.0.0",
-    "fs": "^0.0.1-security",
-    "request": "^2.88.2",
-    "request-promise": "^4.2.6",
-    "cheerio": "^1.0.0-rc.10"
+    "fs": "^0.0.1-security"
   }
 }
