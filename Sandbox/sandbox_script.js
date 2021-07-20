@@ -1,5 +1,6 @@
 async function main() {
-    var requirejs = require("requirejs");
+    require(['requirejs'], function (requirejs) {
+    });
 // var fs = requirejs("fs");
     const request = requirejs("request-promise")
     let produtos = [['https://www.lojadomecanico.com.br/produto/140035/21/227/base-retangular-6-pol-para-lixadeira-ch-o-50--chiaperini-13711-']
