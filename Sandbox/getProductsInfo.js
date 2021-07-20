@@ -10,4 +10,3 @@ async function main() {
         console.log((i+1) + ' - ' + nome)
     }
 }
-main()
