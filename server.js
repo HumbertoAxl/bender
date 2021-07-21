@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function(req, res){
-    res.render('./index.html');
+    res.render('index.html');
 });
 
 app.get('/Sandbox/sandbox.html', function(req, res){
