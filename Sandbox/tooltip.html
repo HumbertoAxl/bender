@@ -41,7 +41,11 @@
   opacity: 1;
 }
 </style>
-<body style="text-align:center;">
+<head>
+  <title>Bender | Sandbox</title>
+  <link rel="icon" href="../_common/Icon.png">
+</head>
+<body>
 
 <h2>Tooltip</h2>
 <p>Move the mouse over the text below:</p>
@@ -50,5 +54,25 @@
   <span class="tooltiptext">Tooltip text</span>
 </div>
 
+<div id="root"></div>
+
 </body>
+<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- <script src="./react.js"></script> -->
+<script type="text/babel">
+function MeuComponente() {
+  let programa = 'Bender';
+    return(
+        <div>
+            <h1>Teste React</h1>
+            <p>Vamos testar o React no <b>{programa}</b></p>
+        </div>
+    )
+}
+
+const root = document.getElementById('root')
+ReactDOM.render(<MeuComponente />, root)
+</script>
 </html>

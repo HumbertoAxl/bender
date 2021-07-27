@@ -1,6 +1,6 @@
 body {
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-image: url("../../_common/Background_Body.jpg");
+background-image: url("../_common/Background_Body.jpg");
 background-size: auto;
 }
 
@@ -14,7 +14,6 @@ margin-top: 20px;
 margin-left: auto;
 margin-right: auto;
 height: 500px;
-
 }
 
 textarea {
@@ -25,11 +24,10 @@ textarea {
 button {
     height: 30px;
     width: 75px;
-    margin-top: 8px;
-    float: right;
 }
 .botoes:nth-of-type(1) {
-    margin-right: 30px;
+    margin-right: 20px;
+    float: right;
 }
 
 .botoes:nth-of-type(2) {
@@ -45,8 +43,8 @@ button {
     margin-left: 30px;
 }
 
-#verificarMarca {
-margin-top: 10px;
+#acessarTooltip {
+margin-top: 20px;
 font-size: 1em;
 color:white;
 }
