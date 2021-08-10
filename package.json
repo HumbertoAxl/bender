@@ -1,6 +1,6 @@
 {
   "name": "bender",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "description": "",
   "main": "server.js",
   "scripts": {
