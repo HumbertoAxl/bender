@@ -27,6 +27,27 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/teste', function(req, res) {
-  res.send('ok '+tratarData.pegarDia())
+  res.send('ok '+ enviarEmail('Humberto <humberto.axl@ferimport.com.br>, Victor <victor.costa@ferimport.com.br>, Guilherme <guilherme.failde@ferimport.com.br>, Luan <luan.cosmo@ferimport.com.br>', 'Teste de email pelo site do bender', 'Email enviado pelo site do Bender!'))
   // res.render('index.html')
 })
+
+function enviarEmail (destinatarios, assunto, mensagem) {
+  const client = new SMTPClient({
+      user: 'bender.ferimport@gmail.com',
+      password: 'FerimportBot',
+      host: 'smtp.gmail.com',
+      ssl: true,
+  });
+  // send the message and get a callback with an error or details of the message that was sent
+  client.send(
+      {
+          text: mensagem,
+          from: 'Bender <bender.ferimport@gmail.com>',
+          to: destinatarios,
+          subject: assunto,
+      },
+      (err, message) => {
+          console.log(err || message);
+      }
+  );
+}
