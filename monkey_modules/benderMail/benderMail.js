@@ -18,15 +18,16 @@ exports.send = function (email, senha, destinatarios, assunto, mensagem) {
         (err, message) => {
             if (err) {
             if (err.message.includes('Username and Password not accepted')) {
-                console.log('Erro: Usuário ou senha errados1')
-                res.send('Erro: Usuário ou senha errados1')
+                console.log('Erro: Usuário ou senha errados')
+                // res.send('Erro: Usuário ou senha errados1')
             } else {
                 console.log(err.message)
             }
         } else {
-            console.log('Email enviado com sucesso!1')
-            res.send('Email enviado com sucesso!1')
+            console.log('Email enviado com sucesso!')
+            // res.send('Email enviado com sucesso!1')
         }
         }
     );
+    return console.log('Ok')
 }

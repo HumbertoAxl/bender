@@ -27,5 +27,8 @@
     "emailjs": "^3.5.0",
     "express": "^4.17.1",
     "tratardata": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
