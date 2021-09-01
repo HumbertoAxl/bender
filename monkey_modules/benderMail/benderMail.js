@@ -1,9 +1,9 @@
 const { SMTPClient } = require('emailjs');
 
-exports.send = function (destinatarios, assunto, mensagem) {
+exports.send = function (email, senha, destinatarios, assunto, mensagem) {
     const client = new SMTPClient({
-        user: 'bender.ferimport@gmail.com',
-        password: 'FerimportBot',
+        user: email,
+        password: senha,
         host: 'smtp.gmail.com',
         ssl: true,
     });
@@ -11,12 +11,22 @@ exports.send = function (destinatarios, assunto, mensagem) {
     client.send(
         {
             text: mensagem,
-            from: 'Bender <bender.ferimport@gmail.com>',
+            from: email,
             to: destinatarios,
             subject: assunto,
         },
         (err, message) => {
-            console.log(err || message);
+            if (err) {
+            if (err.message.includes('Username and Password not accepted')) {
+                console.log('Erro: Usuário ou senha errados1')
+                res.send('Erro: Usuário ou senha errados1')
+            } else {
+                console.log(err.message)
+            }
+        } else {
+            console.log('Email enviado com sucesso!1')
+            res.send('Email enviado com sucesso!1')
+        }
         }
     );
 }
