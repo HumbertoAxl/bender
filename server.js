@@ -27,6 +27,6 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/teste', function(req, res) {
-  res.send('ok')
-  res.render('index.html')
+  res.send('ok '+tratarData.pegarDia())
+  // res.render('index.html')
 })
