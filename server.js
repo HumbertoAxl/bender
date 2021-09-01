@@ -26,8 +26,8 @@ app.get('/Sandbox/sandbox.html', function(req, res){
 app.listen(app.get('port'), function() {
 });
 
-app.get('/teste', function(req, res) {
-  res.send('ok '+ enviarEmail('Humberto <humberto.axl@ferimport.com.br>, Victor <victor.costa@ferimport.com.br>, Guilherme <guilherme.failde@ferimport.com.br>, Luan <luan.cosmo@ferimport.com.br>', 'Teste de email pelo site do bender', 'Email enviado pelo site do Bender!'))
+app.get('/teste/:destinatario', function(req, res) {
+  res.send(enviarEmail(req.params.destinatario, 'Teste 2 de email pelo site do bender', 'Email enviado pelo site do Bender!'))
   // res.render('index.html')
 })
 
