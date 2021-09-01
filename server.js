@@ -1,8 +1,8 @@
-var express = require('express');
-var bodyParser = require('body-parser');
+let express = require('express');
+let bodyParser = require('body-parser');
 const { SMTPClient } = require('emailjs');
 const tratarData = require('tratardata');
-var app = express();
+let app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/'));
@@ -27,6 +27,6 @@ app.listen(app.get('port'), function() {
 });
 
 app.get('/teste', function(req, res) {
-  res.render('index.html')
   res.send('ok')
+  res.render('index.html')
 })
