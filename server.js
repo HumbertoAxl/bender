@@ -27,6 +27,12 @@ app.get('/Sandbox/', function(req, res){
 app.listen(app.get('port'), function() {
 });
 
-app.get('/teste/:destinatario', function(req, res) {
-  res.send(benderMail.send(req.params.destinatario, 'Teste 2 de email pelo site do bender', 'Email enviado pelo site do Bender!'))
+app.get('/teste/', function(req, res) {
+  // res.send(benderMail.send(req.params.destinatario, 'Teste 2 de email pelo site do bender', 'Email enviado pelo site do Bender!'))
+  try {
+    res.send(benderMail.send('humbertoaxl@gmail.com', 'damiao', 'teste@gmail.com', 'teste', 'teste'))
+    } catch (e) {
+        console.log('Senha ou email errados, tente novamente!')
+        // res.send(alert)
+    }
 })
