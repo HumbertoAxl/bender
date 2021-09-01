@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+const { SMTPClient } = require('emailjs');
+const tratarData = require('tratardata');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -24,3 +25,7 @@ app.get('/Sandbox/sandbox.html', function(req, res){
 
 app.listen(app.get('port'), function() {
 });
+
+app.get('/teste', function(req, res) {
+  console.log('teste dia: '+tratarData.pegarDia())
+})

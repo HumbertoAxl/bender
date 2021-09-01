@@ -23,7 +23,9 @@
   "heroku-run-build-script": true,
   "dependencies": {
     "body-parser": "^1.19.0",
+    "ejs": "^1.0.0",
+    "emailjs": "^3.5.0",
     "express": "^4.17.1",
-    "ejs": "^1.0.0"
+    "tratardata": "^1.0.0"
   }
 }
