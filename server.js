@@ -28,5 +28,5 @@ app.listen(app.get('port'), function() {
 
 app.get('/teste', function(req, res) {
   res.render('index.html')
-  console.log('teste dia: '+tratarData.pegarDia())
+  res.send('ok')
 })
