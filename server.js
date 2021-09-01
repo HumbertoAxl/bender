@@ -20,19 +20,20 @@ app.get('/', function(req, res){
     res.render('index.html');
 });
 
-app.get('/Sandbox/', function(req, res){
+app.get('/Sandbox/sandbox.html', function(req, res){
   res.redirect('/')
 });
 
 app.listen(app.get('port'), function() {
 });
 
-app.get('/teste/', function(req, res) {
+app.get('/teste', function(req, res) {
   // res.send(benderMail.send(req.params.destinatario, 'Teste 2 de email pelo site do bender', 'Email enviado pelo site do Bender!'))
   try {
-    res.send(benderMail.send('bender.ferimport@ferimport.com.br', 'FerimportBot', 'humbertoaxl@gmail.com', 'teste', 'teste'))
+    res.send(benderMail.send('bender.ferimport@ferimport.com.br', 'Ferimp1ortBot', 'humbertoaxl@gmail.com', 'teste', 'teste'))
+    res.send('Email enviado com sucesso!')
     } catch (e) {
         console.log('Senha ou email errados, tente novamente!')
-        // res.send(alert)
+        res.send('Senha ou email errados, tente novamente!')
     }
 })
