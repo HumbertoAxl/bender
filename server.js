@@ -30,7 +30,7 @@ app.listen(app.get('port'), function() {
 app.get('/teste/', function(req, res) {
   // res.send(benderMail.send(req.params.destinatario, 'Teste 2 de email pelo site do bender', 'Email enviado pelo site do Bender!'))
   try {
-    res.send(benderMail.send('humberto.axl@ferimport.com.br', 'Ferimport1b', 'humbertoaxl@gmail.com', 'teste', 'teste'))
+    res.send(benderMail.send('bender.ferimport@ferimport.com.br', 'FerimportBot', 'humbertoaxl@gmail.com', 'teste', 'teste'))
     } catch (e) {
         console.log('Senha ou email errados, tente novamente!')
         // res.send(alert)
