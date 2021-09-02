@@ -7,7 +7,7 @@ let app = express();
 
 app.set('port', (process.env.PORT || 5005));
 app.use(express.static(__dirname + '/'));
-app.set('views', __dirname +'/');
+app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
@@ -16,17 +16,17 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.get('/', function(req, res){
-    res.render('index.html');
+app.get('/', function (req, res) {
+  res.render('index.html');
 });
 
-app.get('/Sandbox/sandbox.html', function(req, res){
+app.get('/Sandbox/sandbox.html', function (req, res) {
   res.redirect('/')
 });
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
 });
 
-app.get('/teste', function(req, res, next) {
-    res.send(benderMail.send('bender.ferimport@gmail.com', 'FerimportBot', 'humberto22.axl@ferimport.com.br', 'teste', 'teste'))
+app.get('/teste', function (req, res) {
+  res.send(benderMail.send('bender.ferimport@gmail.com', 'Ferimp2ortBot', 'humberto.axl@ferimport.com.br', 'teste', 'teste'))
 })
