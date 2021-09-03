@@ -1,7 +1,6 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 const benderMail = require('./monkey_modules/benderMail/benderMail')
-const { SMTPClient } = require('emailjs');
 const tratarData = require('tratardata');
 let app = express();
 
