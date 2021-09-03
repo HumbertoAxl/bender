@@ -3,7 +3,7 @@
 <head>
     <title>Bender | Menu</title>
     <link rel="icon" href=" ./_common/Icon.png">
-    <link rel='stylesheet' type='text/css' href='./Index/index_style.css'>
+    <link rel='stylesheet' type='text/css' href='./views/Index/index_style.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -13,48 +13,48 @@
             <div id="menuHeader">
                 <span id='menuHeaderText'>Bender | v0.7.5 | © Monkey Dev | <span id='login' onclick="emConstrucao()">Login</span></span>
             </div>
-            <div class="opcao" onclick=emManutenção()>
-                <img src='./Index/_assets/Manutenção.png'></img>
+            <div class="opcao" onclick="parent.location='./views/EmailSAC/EmailSAC.html'">
+                <img src='./views/Index/_assets/Manutenção.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Em construção</span>
                     <br>
                     <span class="opcaoDescription">Enviar emails para clientes</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./src/InserirMarca/InserirMarca.html'">
-                <img src="./src/InserirMarca/_assets/opcao_InserirMarca.png"></img>
+            <div class="opcao" onclick="parent.location='./views/InserirMarca/InserirMarca.html'">
+                <img src="./views/InserirMarca/_assets/opcao_InserirMarca.png"></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Inserir marca</span>
                     <br>
                     <span class="opcaoDescription">Acrescenta a marca no intervalo indicado</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./src/LinkCarrinho/LinkCarrinho.html'">
-                <img src="./src/LinkCarrinho/_assets/opcao_LinkCarrinho.png"></img>
+            <div class="opcao" onclick="parent.location='./views/LinkCarrinho/LinkCarrinho.html'">
+                <img src="./views/LinkCarrinho/_assets/opcao_LinkCarrinho.png"></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Gerar link</span>
                     <br>
                     <span class="opcaoDescription">Cria URLs diretamente para o carrinho do site</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./src/TestarHTML/TestarHTML.html'">
-                <img src='./src/TestarHTML/_assets/opcao_TestarHTML.png'></img>
+            <div class="opcao" onclick="parent.location='./views/TestarHTML/TestarHTML.html'">
+                <img src='./views/TestarHTML/_assets/opcao_TestarHTML.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Teste de HTML</span>
                     <br>
                     <span class="opcaoDescription">Analisar e testar códigos HTMLs dos produtos</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./src/Drive/Drive.html'">
-                <img src='./src/Drive/_assets/opcao_Drive.png'></img>
+            <div class="opcao" onclick="parent.location='./views/Drive/Drive.html'">
+                <img src='./views/Drive/_assets/opcao_Drive.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Drive</span>
                     <br>
                     <span class="opcaoDescription">Modelos, tutoriais e arquivos da VTEX</span>
                 </div>
             </div>
-            <div class="opcao" onclick="parent.location='./src/OutrasFuncoes/OutrasFuncoes.html'">
-                <img src='./src/OutrasFuncoes/_assets/opcao_OutrasFuncoes.png'></img>
+            <div class="opcao" onclick="parent.location='./views/OutrasFuncoes/OutrasFuncoes.html'">
+                <img src='./views/OutrasFuncoes/_assets/opcao_OutrasFuncoes.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Outras funções</span>
                     <br>
@@ -68,7 +68,7 @@
     <script>
         function emConstrucao() {
             Swal.fire({
-                title: 'Em construção...',
+                title: 'Acesso restrito',
                 text: 'Você é o desenvolvedor?',
                 showCancelButton: true,
                 confirmButtonText: `Sim`,
@@ -85,7 +85,7 @@
                 input: 'password',
                 inputPlaceholder: 'Insira o código de acesso'
             })
-            if (codigoAcesso == 'nonoca') { //Se veio olhar no HTML é um corno/a
+            if (codigoAcesso == 'nonoca') { //Se veio olhar no inspecionar é corno/a
                 sendMessage('Olá!', 'success', null, false, 'Bem vindo ao sandbox do Bender')
                 setTimeout(() => window.location.href = "https://bender-ferimport.herokuapp.com/Sandbox/sandbox.html", 2000)
             } else {

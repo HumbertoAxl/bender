@@ -1,0 +1,87 @@
+body {
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-image: url("../../_common/Background_Body.jpg");
+background-size: auto;
+}
+
+#container {
+background-color:white;
+border: #EB6A18;
+border-style: solid;
+border-radius: 10px;
+width: fit-content;
+margin-top: 20px;
+margin-left: auto;
+margin-right: auto;
+height: fit-content;
+position: relative;
+display: flex;
+}
+
+.info-box {
+    font-weight: 600;
+    padding: 10px 30px 25px 30px;
+    width: fit-content;
+    /* background-color: white; */
+    color: #EB6A18;
+}
+
+.info-box input {
+    width: 180px;
+    height: 27px;
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.info-box select {
+    width: 180px;
+    height: 27px;
+    display: block;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.info-box:nth-child(n+2) {
+    border-top: 1px solid;
+}
+
+div:nth-of-type(2) div.info-box {
+    border-left: 2px solid;
+}
+
+div:nth-of-type(2) div.info-box:nth-child(n+2) {
+    border-top: 1px solid;
+}
+
+.boxText {
+    height: 134px;
+    width: 180px;
+}
+
+.textareaText {
+margin-top: 10px;
+height: 65%;
+width: 100%;
+resize: none;
+}
+
+.boxHeader {
+    font-size: 1.2em;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    height: 28px;
+    width: 65px;
+}
+#botoes {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.swal2-styled.swal2-confirm {
+    display: none !important;
+}

@@ -5,7 +5,7 @@ body {
 }
 
 #container {
-  background-image: url("../src/InserirMarca/_assets/Container_InserirMarca.jpg");
+  background-image: url("../views/InserirMarca/_assets/Container_InserirMarca.jpg");
   border: white;
   border-style: solid;
   border-radius: 10px;
