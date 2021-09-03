@@ -27,5 +27,5 @@ app.listen(app.get('port'), function () {
 });
 
 app.get('/teste', function (req, res) {
-  res.send(benderMail.send('bender.ferimport@gmail.com', 'Ferimp2ortBot', 'humberto.axl@ferimport.com.br', 'teste', 'teste'))
+  res.send(benderMail.send('bender.ferimport@gmail.com', 'Ferimpo2rtBot', 'humberto.axl22@ferimport.com.br', 'teste', 'teste'))
 })
