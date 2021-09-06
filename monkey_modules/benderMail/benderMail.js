@@ -5,7 +5,7 @@ exports.send = function (email, senha, destinatarios, assunto, mensagem) {
     client.send({ text: mensagem, from: email, to: destinatarios, subject: assunto }, (err, message) => {
         if (err) {
         erro = err
-    }
+    }   
     });
     if (erro) {
         switch (erro) {

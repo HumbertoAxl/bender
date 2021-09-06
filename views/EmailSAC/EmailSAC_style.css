@@ -18,7 +18,7 @@ position: relative;
 display: flex;
 }
 
-.info-box {
+.infoBox {
     font-weight: 600;
     padding: 10px 30px 25px 30px;
     width: fit-content;
@@ -26,7 +26,7 @@ display: flex;
     color: #EB6A18;
 }
 
-.info-box input {
+.infoBox input {
     width: 180px;
     height: 27px;
     display: block;
@@ -34,7 +34,7 @@ display: flex;
     margin-bottom: 3px;
 }
 
-.info-box select {
+.infoBox select {
     width: 180px;
     height: 27px;
     display: block;
@@ -42,15 +42,15 @@ display: flex;
     margin-bottom: 3px;
 }
 
-.info-box:nth-child(n+2) {
+.infoBox:nth-child(n+2) {
     border-top: 1px solid;
 }
 
-div:nth-of-type(2) div.info-box {
+div:nth-of-type(2) div.infoBox {
     border-left: 2px solid;
 }
 
-div:nth-of-type(2) div.info-box:nth-child(n+2) {
+div:nth-of-type(2) div.infoBox:nth-child(n+2) {
     border-top: 1px solid;
 }
 
