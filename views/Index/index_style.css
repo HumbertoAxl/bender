@@ -51,7 +51,6 @@ button {
 #menuHeaderText {
     margin-top: 9px;
     display: inline-block;
-    margin-left: 20px;
 }
 .opcao:nth-child(2) {
     background-color: #4EA5D262;

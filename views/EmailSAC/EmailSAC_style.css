@@ -46,8 +46,8 @@ display: flex;
     border-top: 1px solid;
 }
 
-div:nth-of-type(2) div.infoBox {
-    border-left: 2px solid;
+div.menu:nth-of-type(1) div.infoBox {
+    border-right: 2px solid;
 }
 
 div:nth-of-type(2) div.infoBox:nth-child(n+2) {
@@ -76,12 +76,13 @@ button {
     height: 28px;
     width: 65px;
 }
+
 #botoes {
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
 }
 
-.swal2-styled.swal2-confirm {
-    display: none !important;
+button:hover {
+    cursor: pointer;
 }

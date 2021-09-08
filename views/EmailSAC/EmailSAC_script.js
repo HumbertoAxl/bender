@@ -1,7 +1,8 @@
-async function Enviar() {
+async function enviarDados () {
     let nomeCliente = document.querySelector('input#nomeCliente').value;
     let emailCliente = document.querySelector('input#emailCliente').value;
     let numeroPedido = document.querySelector('input#numeroPedido').value;
+    let SKU = document.querySelector('input#SKU').value;
     let formaPagamento = document.querySelector('select#formaPagamento').value
     let tipoSolicitacao = document.querySelector('select#tipoSolicitacao').value
     let notaFiscal = document.querySelector('input#notaFiscal').value
@@ -10,24 +11,26 @@ async function Enviar() {
     dataPedido = dataPedido.split('-')
     dataPedido = dataPedido.reverse()
     dataPedido = dataPedido.join().replace(/,/g, '/')
-    // let motivo = document.querySelector('div.info-box:nth-of-type(1) textarea').value
-    // let observacoes = document.querySelector('div.info-box:nth-of-type(2) textarea').value
-    let emailAtendente = document.querySelector('input#emailAtendente').value
+    let motivo = document.querySelector('div.infoBox:nth-of-type(1) textarea').value
+    let observacoes = document.querySelector('div.infoBox:nth-of-type(2) textarea').value
+    let emailAtendente = document.querySelector('select#emailAtendente').value
     let senhaAtendente = document.querySelector('input#senhaAtendente').value
-    let url = "http://localhost:5005/teste/";
+    await enviarEmail(nomeCliente, emailCliente, numeroPedido, tipoSolicitacao, dataPedido, emailAtendente, senhaAtendente)
+    return nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, emailAtendente, senhaAtendente
+}
+
+async function enviarEmail(nomeCliente, emailCliente, numeroPedido, tipoSolicitacao, dataPedido, emailAtendente, senhaAtendente) {
+    let url = "http://localhost:5005/email/";
     let xhr = new XMLHttpRequest();
     xhr.abort();
     xhr.open("POST", url);
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
-        "emailCliente": "${emailCliente}",
         "nomeCliente": "${nomeCliente}",
+        "emailCliente": "${emailCliente}",
         "numeroPedido": "${numeroPedido}",
-        "formaPagamento": "${formaPagamento}",
         "tipoSolicitacao": "${tipoSolicitacao}",
-        "notaFiscal": "${notaFiscal}",
-        "valorPedido": "${valorPedido}",
         "dataPedido": "${dataPedido}",
         "emailAtendente": "${emailAtendente}",
         "senhaAtendente": "${senhaAtendente}"
@@ -35,13 +38,12 @@ async function Enviar() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.response == 'OK') {
-                sendMessage('Enviado com sucesso!', 'success', 1500, true)
+                sendMessage('Email enviado com sucesso!', 'success', null, true)
             } else {
-                sendMessage('Email ou senha errados!', 'error', 1500, true)
+                sendMessage('Senha incorreta!', 'error', null, true)
             }
         }
     }
     xhr.send(data);
-    sendMessage('Enviando o email...', 'info', 2500, true)
+    sendMessage('Enviando o email...', 'info', null, true)
 }
-

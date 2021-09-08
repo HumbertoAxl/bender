@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "bender-ferimport",
+  "private_key_id": "62542b4067674cefa99094980298cdd4c67255de",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCp+qrAZ6aesz9L\n3H1My8RxZ7coJK82wJwwOkdI5vPU81OLIq4xRPMcJwjEP22cNhtgX1ZeSLWAKc7m\nhjU1FCtaQIc1S/D1+6RoWahlB/XR4XAEYMs+U0SOg/JzghA5ewvAQFXXQQT8LJqc\n09G8qem5PP0HRNpIE6SDPzJwLYh6p0xi62q36G3NbXNlpWpDgfPJFoM7ScAG+TYz\nlJL9X/jfqEd31J5A32kbFsNdA+M38uoNXPctuzwraruyFIvBoa7W9HHFyTy0H+1E\ne71JAdzntQRsPPAeeRxSFfvGgaw7mKkF/u3rKxCSjfQfb4zBo2W0fH/+BqY7YnAt\ndDcKQfEfAgMBAAECggEAG4O8fR2qHnlUbyK3U6WOXG8V+lUJ2bqO7c2ZOWdNI/Tp\nWpXYDZikI7P72syLoSQvBUgZcnShkKfz2mPyG+/yXo8gc9OhoyfDQrL0q7oApCMy\nXzsN2z5eVBVuuxzcJHnS+qFPY+Md+/X6ZxVwl3IHp9kD+le+X7lyQV6K+xabx4Km\nf+0LysuXl2p7v0qqusT7HUl75Vh8IowtJTvDpv9WPy0qx5FyT3FAj8ZEAEsOwlt0\nOupD9Two6V1GK7vRJ8EJ35y3lQwBUDhKj+Mo1sEv5Et4zOWPW73Gw/4IcUeek7MQ\npzIPa61KroJ/sQGOILdAfxz8PxZfM9ynbnb4pN/prQKBgQDhsjtEEfR8vDE4nseB\n/Ne7m1FtMpgkx7u6ceNWMgKhDt3xFSp119bNqv6xYGv20SgDei9bd5KnANA8amFo\nDrfHB1wr6dpnmhD30P0/lOiZR4GqB4bABdx7yBRzqjbm1EXaErznCsYfxSa6KvCO\nw6MLs9xHmPqOpzCLwibO9k/5PQKBgQDAzUuEV84288TPeysICOUgoce2RZe84rx7\nvBJk3uMorJhWfQLLztfiqV/hFSVbgWR77bIkW0/zKIw/I1ud6V+/wspzKOkd2mWS\nhPXEncOnX8jbq2V/a+YVYLWp3PH1Tyb6F1qHmc3kcJCMAJqq+RTYouAD+qkGYSXh\nNO+tRFPhiwKBgHL5guuYYf4xOLnpWSVFEvmFlCOWxJ7oCSBf6Dn+3AwEMNghujGy\nNMEtPPZLcnSX9FRhKELmVRUyeuJsJxcFeGWxwCi2xwZEHCTCmGCNkTiUjt95WhH0\nam+8a37I1ZMdzD/dj9H7URbaLnJkcYuo6iSKCcuHiQym6zonO/Hu1KrZAoGAf1bY\nWrd3nrnQMk0iNbNSSgQwGIXMW1fRr1OfPnorxFCCaRU2BJA/7Bd8GPhTbSV/zY5H\ni1W371zHjGf4+coKkGfCON87YJk/Xs9sV4jvkZtk2RlR9x+3nkT6lw8zy5aUordL\n9qWx5AAoqB86CFRs3Uxt8pLakjkVwLGq32BymlMCgYAdCA4iMsepy8TUHZYxwZFd\nSP/Xdls8eJgIKUdS9udDg9Vw9DQRC6pbCz0aSaKxJbRLOdc3GKoBnIwdFxDENZ3c\nsq2InqgCVbe2LMYzuDpmacvrWdEJ44JOgqEibTpA4JdT3Jl8OvwFcERLBaXiknuJ\n1xBaAFz7U4oUM3hnfuJpDw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "bender@bender-ferimport.iam.gserviceaccount.com",
+  "client_id": "108854866942092530603",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/bender%40bender-ferimport.iam.gserviceaccount.com"
+}
