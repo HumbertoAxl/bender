@@ -14,8 +14,6 @@ async function Enviar() {
     // let observacoes = document.querySelector('div.info-box:nth-of-type(2) textarea').value
     let emailAtendente = document.querySelector('input#emailAtendente').value
     let senhaAtendente = document.querySelector('input#senhaAtendente').value
-    console.log(senhaAtendente)
-
     let url = "http://localhost:5005/teste/";
     let xhr = new XMLHttpRequest();
     xhr.abort();
@@ -34,6 +32,15 @@ async function Enviar() {
         "emailAtendente": "${emailAtendente}",
         "senhaAtendente": "${senhaAtendente}"
     }`;
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.response == 'OK') {
+                sendMessage('Enviado com sucesso!', 'success', 1500, true)
+            } else {
+                sendMessage('Email ou senha errados!', 'error', 1500, true)
+            }
+        }
+    }
     xhr.send(data);
     sendMessage('Enviando o email...', 'info', 2500, true)
 }
