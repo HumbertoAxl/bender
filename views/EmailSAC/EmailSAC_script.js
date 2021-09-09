@@ -17,9 +17,13 @@ async function enviarDados () {
     let emailAtendente = document.querySelector('select#emailAtendente').value
     switch(emailAtendente) {
         case 'bender.ferimport@gmail.com': nomeAtendente = 'Bender'
+        break
         case 'rafaela.franca@ferimport.com.br': nomeAtendente = 'Rafaela'
+        break
         case 'jucivaldo_batista@ferimport.com.br': nomeAtendente = 'Jucivaldo'
+        break
         case 'iury.rodrigues@ferimport.com.br': nomeAtendente = 'Iury'
+        break
     }
     let senhaAtendente = document.querySelector('input#senhaAtendente').value
     await enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, motivo, observacoes, nomeAtendente, emailAtendente, senhaAtendente)
@@ -27,7 +31,7 @@ async function enviarDados () {
 
 async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, motivo, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://bender-ferimport.herokuapp.com/email/");
+    xhr.open("POST", "http://localhost:5000/email/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
@@ -56,7 +60,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
 
 async function sendtoGS (nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, motivo, observacoes, nomeAtendente) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "https://bender-ferimport.herokuapp.com/googlesheets/");
+    xhr.open("POST", "http://localhost:5000/googlesheets/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
