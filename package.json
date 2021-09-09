@@ -28,7 +28,6 @@
     "express": "^4.17.1",
     "nodemailer": "^6.6.3",
     "google-spreadsheet": "^3.1.15",
-    "benderMail2": "file:./monkey-modules/benderMail2/benderMail2",
     "benderSheets": "file:./monkey-modules/benderSheets/benderSheets"
   },
   "devDependencies": {
