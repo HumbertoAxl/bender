@@ -31,7 +31,7 @@ async function enviarDados () {
 
 async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, motivo, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/email/");
+    xhr.open("POST", "https://bender-ferimport.herokuapp.com/email/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
@@ -60,7 +60,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
 
 async function sendtoGS (nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, notaFiscal, valorPedido, dataPedido, motivo, observacoes, nomeAtendente) {
     let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:5000/googlesheets/");
+    xhr.open("POST", "https://bender-ferimport.herokuapp.com/googlesheets/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
