@@ -42,18 +42,21 @@
                     </select>
                 </div>
                 <div class="info">
-                    <label for="tipoSsolicitacao">Solicitação</label>
+                    <label for="tipoSolicitacao">Solicitação</label>
                     <br>
                     <select name="solicitacao" id="tipoSolicitacao">
                         <option value="" disabled selected hidden>Motivo da solicitação</option>
                         <optgroup label="Troca">
-                            <option value="Defeito">Produto avariado</option>
+                            <option value="Produto com defeito">Produto com defeito</option>
                             <option value="Desistência">Desistência</option>
-                            <option value="Voltagem">Voltagem</option>
+                            <option value="Troca de Voltagem">Troca de Voltagem</option>
+                            <option value="Envio errado (Troca)">Envio errado (Troca)</option>
                         </optgroup>
                         <optgroup label="Devolução">
+                            <option value="Devolução Total">Devolução Total</option>
+                            <option value="Devolução Parcial">Devolução Parcial</option>
                             <option value="Arrependimento">Arrependimento</option>
-                            <option value="Envio errado">Envio errado</option>
+                            <option value="Envio errado (Devolução)">Envio errado (Devolução)</option>
                     </select>
                 </div>
                 <div class="info">
@@ -73,7 +76,7 @@
         <div class="menu">
             <div class="infoBox">
                 <div class="boxText">
-                    <span class="boxHeader">Motivo</span>
+                    <span class="boxHeader">Detalhes</span>
                     <div class="info">
                         <textarea class='textareaText'></textarea>
                     </div>
