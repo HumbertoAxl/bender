@@ -1,8 +1,7 @@
 {
-  "name": "bendersheets",
+  "name": "bender-sheets",
   "version": "1.0.0",
-  "description": "",
-  "main": "benderSheets.js",
+  "main": "bender-sheets.js",
   "dependencies": {
     "google-spreadsheet": "^3.1.15"
   },
@@ -11,5 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Humberto Axl",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
