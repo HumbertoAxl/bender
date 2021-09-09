@@ -18,11 +18,11 @@ async function enviarDados () {
     switch(emailAtendente) {
         case 'bender.ferimport@gmail.com': nomeAtendente = 'Bender'
         break
-        case 'rafaela.franca@ferimport.com.br': nomeAtendente = 'Rafaela'
+        case 'rafaela.franca@ferimport.com.br': nomeAtendente = 'Rafaela França'
         break
-        case 'jucivaldo_batista@ferimport.com.br': nomeAtendente = 'Jucivaldo'
+        case 'jucivaldo_batista@ferimport.com.br': nomeAtendente = 'Jucivaldo Filho'
         break
-        case 'iury.rodrigues@ferimport.com.br': nomeAtendente = 'Iury'
+        case 'iury.rodrigues@ferimport.com.br': nomeAtendente = 'Iury Rodrigues'
         break
     }
     let senhaAtendente = document.querySelector('input#senhaAtendente').value

@@ -1,7 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
-const bendermail2 = require('bender-mail2');
-const benderSheets = require('bender-sheets')
+const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
+const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 let app = express();
 app.set('port', (process.env.PORT || 5005));
 app.use(express.static(__dirname + '/'));
