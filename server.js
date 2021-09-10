@@ -3,7 +3,7 @@ let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 let app = express();
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/'));
 app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
@@ -25,14 +25,14 @@ app.get('/Sandbox/sandbox.html', function (req, res) {
 app.listen(app.get('port'), function () {
 });
 
-app.post('http://localhost/email/', async function (req, res) {
+app.post('/email/', async function (req, res) {
   let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao,
     'Olá ' + req.body.nomeCliente + '!\nRecebemos sua solicitação referente ao pedido ' + req.body.numeroPedido + ' feito no dia ' + req.body.dataPedido + ' e já estamos analisando o caso, em breve entraremos em contato'
   )
   res.sendStatus(status)
 })
 
-app.post('http://localhost/googlesheets/', async function (req, res) {
+app.post('/googlesheets/', async function (req, res) {
   const doc = benderSheets.id('1Z6erjnZX3RRM1_DDhph60UHwBKVTs1aHWUg3wNbvPD8')
   await doc.useServiceAccountAuth(benderSheets.credencials);
   await doc.loadInfo();

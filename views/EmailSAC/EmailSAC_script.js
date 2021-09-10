@@ -32,7 +32,7 @@ async function enviarDados() {
 
 async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
     let xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/email/");
+        xhr.open("POST", "../../email/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
@@ -61,7 +61,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
 
 async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente) {
     let xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/googlesheets/");
+        xhr.open("POST", "../../googlesheets/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
