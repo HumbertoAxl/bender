@@ -1,8 +1,8 @@
 async function enviarDados() {
-    let nomeCliente = document.querySelector('input#nomeCliente').value;
-    let emailCliente = document.querySelector('input#emailCliente').value;
-    let numeroPedido = document.querySelector('input#numeroPedido').value;
-    let SKU = document.querySelector('input#SKU').value;
+    let nomeCliente = document.querySelector('input#nomeCliente').value
+    let emailCliente = document.querySelector('input#emailCliente').value
+    let numeroPedido = document.querySelector('input#numeroPedido').value
+    let SKU = document.querySelector('input#SKU').value
     let formaPagamento = document.querySelector('select#formaPagamento').value
     let tipoSolicitacao = document.querySelector('select#tipoSolicitacao').value
     let motivo = document.querySelector('select#motivo').value
@@ -32,10 +32,10 @@ async function enviarDados() {
 }
 
 async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../email/");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "../../email/")
+    xhr.setRequestHeader("Accept", "application/json")
+    xhr.setRequestHeader("Content-Type", "application/json")
     let data = `{
         "nomeCliente": "${nomeCliente}",
         "emailCliente": "${emailCliente}",
@@ -45,7 +45,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
         "nomeAtendente": "${nomeAtendente}",
         "emailAtendente": "${emailAtendente}",
         "senhaAtendente": "${senhaAtendente}"
-    }`;
+    }`
     xhr.onreadystatechange = async function () {
         if (xhr.readyState === 4) {
             if (xhr.response == 'OK') {
@@ -56,15 +56,15 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
             }
         }
     }
-    xhr.send(data);
+    xhr.send(data)
     sendMessage('Enviando o email...', 'info', null, true)
 }
 
 async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente) {
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "../../googlesheets/");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
+    let xhr = new XMLHttpRequest()
+    xhr.open("POST", "../../googlesheets/")
+    xhr.setRequestHeader("Accept", "application/json")
+    xhr.setRequestHeader("Content-Type", "application/json")
     let data = `{
         "responsavel": "${nomeAtendente}",
         "solicitacao": "${tipoSolicitacao}",
@@ -81,6 +81,6 @@ async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSoli
         "formaPagamento": "${formaPagamento}",
         "notaFiscal": "${notaFiscal}",
         "observacoes": "${observacoes}"
-    }`;
-    xhr.send(data);
+    }`
+    xhr.send(data)
 }
