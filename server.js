@@ -41,6 +41,7 @@ app.post('/googlesheets/', async function (req, res) {
     {Responsável: req.body.responsavel,
     Solicitação: req.body.solicitacao,
     Motivo: req.body.motivo,
+    Responsável_Envio: req.body.responsavelEnvio,
     Pedido: req.body.pedido,
     Status: "Pendente",
     Nome_Cliente: req.body.nomeCliente,

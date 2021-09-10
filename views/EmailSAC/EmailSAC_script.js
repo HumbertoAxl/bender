@@ -5,7 +5,8 @@ async function enviarDados() {
     let SKU = document.querySelector('input#SKU').value;
     let formaPagamento = document.querySelector('select#formaPagamento').value
     let tipoSolicitacao = document.querySelector('select#tipoSolicitacao').value
-    let motivo = document.querySelector('#tipoSolicitacao option:checked').parentElement.label
+    let motivo = document.querySelector('select#motivo').value
+    let responsavelEnvio = document.querySelector('#motivo option:checked').parentElement.label
     let notaFiscal = document.querySelector('input#notaFiscal').value
     let valorPedido = document.querySelector('input#valorPedido').value
     let dataPedido = document.querySelector('input#dataPedido').value
@@ -27,12 +28,12 @@ async function enviarDados() {
             break
     }
     let senhaAtendente = document.querySelector('input#senhaAtendente').value
-    await enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente)
+    await enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente)
 }
 
-async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
+async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
     let xhr = new XMLHttpRequest();
-        xhr.open("POST", "../../email/");
+    xhr.open("POST", "../../email/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
@@ -49,7 +50,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
         if (xhr.readyState === 4) {
             if (xhr.response == 'OK') {
                 sendMessage('Email enviado com sucesso!', 'success', null, true)
-                await sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente)
+                await sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente)
             } else {
                 sendMessage('Senha incorreta!', 'error', null, true)
             }
@@ -59,15 +60,16 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
     sendMessage('Enviando o email...', 'info', null, true)
 }
 
-async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente) {
+async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente) {
     let xhr = new XMLHttpRequest();
-        xhr.open("POST", "../../googlesheets/");
+    xhr.open("POST", "../../googlesheets/");
     xhr.setRequestHeader("Accept", "application/json");
     xhr.setRequestHeader("Content-Type", "application/json");
     let data = `{
         "responsavel": "${nomeAtendente}",
         "solicitacao": "${tipoSolicitacao}",
         "motivo": "${motivo}",
+        "responsavelEnvio": "${responsavelEnvio}",
         "pedido": "${numeroPedido}",
         "status": "Pendente",
         "nomeCliente": "${nomeCliente}",

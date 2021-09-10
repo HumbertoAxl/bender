@@ -1,4 +1,5 @@
 <html>
+<!DOCTYPE html>
 
 <head>
     <title>Bender | Email SAC</title>
@@ -23,7 +24,8 @@
             <div class="infoBox">
                 <span class="boxHeader">Pedido</span>
                 <div class="info">
-                    <label>Número<input id="numeroPedido" name="Nome" placeholder="Número do pedido" type="text" maxlength="6" /></label>
+                    <label>Número<input id="numeroPedido" name="Nome" placeholder="Número do pedido" type="text"
+                            maxlength="6" /></label>
                 </div>
                 <div class="info">
                     <label>SKU<input id="SKU" name="SKU" placeholder="SKU do produto" type="text" /></label>
@@ -36,25 +38,36 @@
                         <option value="Boleto">Boleto</option>
                         <option value="Pix">Pix</option>
                         <option value="Dinheiro">Dinheiro</option>
-                        <option value="valePresente">Vale Presente</option>
+                        <option value="Vale Presente">Vale Presente</option>
                     </select>
                 </div>
                 <div class="info">
                     <label for="tipoSolicitacao">Solicitação</label>
                     <br>
                     <select name="solicitacao" id="tipoSolicitacao">
+                        <option value="" disabled selected hidden>Tipo da solicitação</option>
+                        <option value="Troca">Troca</option>
+                        <option value="Devolução Total">Devolução Total</option>
+                        <option value="Devolução Parcial">Devolução Parcial</option>
+                    </select>
+                </div>
+                <div class="info">
+                    <label for="motivo">Motivo</label>
+                    <br>
+                    <select name="motivo" id="motivo">
                         <option value="" disabled selected hidden>Motivo da solicitação</option>
-                        <optgroup label="Troca">
-                            <option value="Produto com defeito">Produto com defeito</option>
+                        <optgroup label="Cliente">
                             <option value="Desistência">Desistência</option>
-                            <option value="Troca de Voltagem">Troca de Voltagem</option>
-                            <option value="Envio errado (Troca)">Envio errado (Troca)</option>
-                        </optgroup>
-                        <optgroup label="Devolução">
-                            <option value="Devolução Total">Devolução Total</option>
-                            <option value="Devolução Parcial">Devolução Parcial</option>
+                            <option value="Troca de voltagem">Troca de voltagem</option>
                             <option value="Arrependimento">Arrependimento</option>
-                            <option value="Envio errado (Devolução)">Envio errado (Devolução)</option>
+                            <option value="Outros">Outros</option>
+                        </optgroup>
+                        <optgroup label="Ferimport">
+                            <option value="Envio errado">Envio errado</option>
+                            <option value="Produto com defeito">Produto com defeito</option>
+                            <option value="Informações erradas no site">Informações erradas no site</option>
+                            <option value="Outros">Outros</option>
+                        </optgroup>
                     </select>
                 </div>
                 <div class="info">
@@ -89,8 +102,8 @@
                 </div>
             </div>
             <div class="infoBox">
+                <span class="boxHeader">Atendente</span>
                 <div class="info">
-                    <span class="boxHeader">Atendente</span>
                     <label>Nome</label>
                     <select name="email" id="emailAtendente">
                         <option value="" disabled selected hidden></option>
@@ -105,7 +118,7 @@
                             type="password" /></label>
                 </div>
                 <div id="botoes">
-                    <button onclick="parent.location='../../index.html'">Voltar</a></button>
+                    <button onclick="parent.location='../../index.html'">Voltar</button>
                     <button onclick="enviarDados()">Enviar</button>
                 </div>
             </div>
