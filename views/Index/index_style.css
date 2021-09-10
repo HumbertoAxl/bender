@@ -12,8 +12,9 @@ body {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    height: 488px;
+    height: 500px;
     cursor: default;
+    box-shadow: 12px 12px 12px #0000008a;
 }
 #menu {
     color: white;
@@ -28,7 +29,7 @@ button {
     padding: 0;
 }
 .opcao {
-    height: 75px;
+    height: 77px;
     -webkit-text-stroke-width: 0;
 }
 .background {
@@ -112,7 +113,7 @@ display: inline-block;
     font-weight: 100;
 }
 img {
-    margin-top: 12px;
+    margin-top: 13px;
     margin-left: 20px;
     float: left;
 }

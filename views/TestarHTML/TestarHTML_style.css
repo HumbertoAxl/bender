@@ -14,7 +14,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 500px;
-  
+  box-shadow: 12px 12px 12px #0000008a;
   }
   
   textarea {

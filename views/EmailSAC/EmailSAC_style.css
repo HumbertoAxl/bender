@@ -16,6 +16,7 @@ margin-right: auto;
 height: fit-content;
 position: relative;
 display: flex;
+box-shadow: 12px 12px 12px #0000008a;
 }
 
 .infoBox {
