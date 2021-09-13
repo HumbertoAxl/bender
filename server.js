@@ -61,9 +61,8 @@ app.post('/googlesheets/', async function (req, res) {
 app.post('/auth/', async function (req, res) {
   if (req.body.email.includes('@ferimport.com.br')) {
     let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
-    console.log(status)
     if (status == 200) {
-    await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
+      await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
     }
     res.sendStatus(status)
   } else {
