@@ -3,24 +3,37 @@
 <head>
     <title>Bender | Login</title>
     <link rel="icon" href="../../_common/Icon.png">
-    <link rel='stylesheet' type='text/css' href='Login_style.css'>
+    <link rel="stylesheet" type="text/css" href="Login_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<div class="container">
-    <h3>Bender | Login</h3>
-    <div class="loginBox">
-        <div class="info">
-            <label>Usuário<input id="idUsuario" name="idUsuario" type="text" placeholder="ID Usuário" /></label>
+
+<body>
+    <div class="container">
+        <div class="container__title">
+            <h2>Login</h2>
+            <span>Bem vindo/a ao Bender!</span>
         </div>
-        <div class="info">
-            <label>Código<input id="codigoAcesso" name="Codigo" type="password" placeholder="Código de Acesso"
-                    type="text" /></label>
-        </div>
-        <div id="botoes">
-            <span>Esqueci o código</span>
+        <div class="loginBox">
+            <div class="info">
+                <label>Email Corporativo<input id="email" name="email" type="text"
+                        placeholder="Email da Ferimport" /></label>
+            </div>
+            <div class="info">
+                <label>Senha<input id="senhaAcesso" name="senha" type="password" placeholder="Senha do email"
+                        type="text" /></label>
+            </div>
             <button onclick="Login()">Entrar</button>
+            <div id="footer">
+                <span class="help">Esqueceu a senha?</span>
+                <br>
+                <span class="help">Não tenho acesso</span>
+            </div>
         </div>
     </div>
-</div>
+    <script src="../../_common/Common_script.js"></script>
+    <script src="Login_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../../monkey-modules/tratarData/tratarData.js"></script>
+</body>
 
 </html>

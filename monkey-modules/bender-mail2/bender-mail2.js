@@ -22,3 +22,22 @@ exports.send = async function (nomeAtendente, emailAtendente, senhaAtendente, no
     }
     return status
 }
+
+exports.auth = async function (email, senha) {
+    let status
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: email,
+            pass: senha,
+        },
+    });
+    await transporter.verify().then(function (value) {
+        status = 200
+    }, function (erro) {
+        status = erro.responseCode
+    });
+    return status
+}
