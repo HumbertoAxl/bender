@@ -2,7 +2,10 @@ let express = require('express');
 let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
+const Cookies = require('js-cookie')
+var cookieParser = require('cookie-parser')
 let app = express();
+app.use(cookieParser())
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/'));
 app.set('views', __dirname + '/');
@@ -15,7 +18,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  // if () {
+    // console.log('here')
+    res.render('index2.html');
+  // } else {
+    // res.send(console.log('Kek'))
+    // res.render('index.html');
+  // } 
 });
 
 app.get('/Sandbox/sandbox.html', function (req, res) {
@@ -38,20 +47,52 @@ app.post('/googlesheets/', async function (req, res) {
   await doc.loadInfo();
   const sheet = doc.sheetsByTitle['SAC']
   sheet.addRows([
-    {Responsável: req.body.responsavel,
-    Solicitação: req.body.solicitacao,
-    Motivo: req.body.motivo,
-    Responsável_Envio: req.body.responsavelEnvio,
-    Pedido: req.body.pedido,
-    Status: "Pendente",
-    Nome_Cliente: req.body.nomeCliente,
-    Data_Pedido: req.body.dataPedido,
-    Valor_Pedido: req.body.valorPedido,
-    Data_Solicitação: req.body.dataSolicitacao,
-    Detalhes: req.body.detalhes,
-    SKU_Produto: req.body.SKU,
-    Forma_Pagamento: req.body.formaPagamento,
-    Nota_Fiscal: req.body.notaFiscal,
-    Observações: req.body.observacoes}
+    {
+      Responsável: req.body.responsavel,
+      Solicitação: req.body.solicitacao,
+      Motivo: req.body.motivo,
+      Responsável_Envio: req.body.responsavelEnvio,
+      Pedido: req.body.pedido,
+      Status: "Pendente",
+      Nome_Cliente: req.body.nomeCliente,
+      Data_Pedido: req.body.dataPedido,
+      Valor_Pedido: req.body.valorPedido,
+      Data_Solicitação: req.body.dataSolicitacao,
+      Detalhes: req.body.detalhes,
+      SKU_Produto: req.body.SKU,
+      Forma_Pagamento: req.body.formaPagamento,
+      Nota_Fiscal: req.body.notaFiscal,
+      Observações: req.body.observacoes
+    }
   ])
 })
+
+app.post('/auth/', async function (req, res) {
+  if (req.body.email.includes('@ferimport.com.br')) {
+    let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
+    if (status == 200) {
+      await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
+      Cookies.set('email', req.body.email)
+      return userAuth = true
+    }
+    res.sendStatus(status)
+  } else {
+    let status = 'Externo'
+    await logLogin(req.body.email, req.body.data, req.body.horario, 'Tentativas Externas')
+    res.send(status)
+  }
+})
+
+async function logLogin(email, data, horario, tabela) {
+  const doc = benderSheets.id('1g6LiHP4yB6CKbGM3nDfA7CLQ3VL23lqi8Sa8-LhGz4U')
+  await doc.useServiceAccountAuth(benderSheets.credencials);
+  await doc.loadInfo();
+  const sheet = doc.sheetsByTitle[tabela]
+  sheet.addRows([
+    {
+      Email: email,
+      Data: data,
+      Horário: horario
+    }
+  ])
+}
