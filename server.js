@@ -2,7 +2,10 @@ let express = require('express');
 let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
+const Cookies = require('js-cookie')
+var cookieParser = require('cookie-parser')
 let app = express();
+app.use(cookieParser())
 app.set('port', (process.env.PORT || 8080));
 app.use(express.static(__dirname + '/'));
 app.set('views', __dirname + '/');
@@ -15,7 +18,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
-  res.render('index.html');
+  // if () {
+    // console.log('here')
+    res.render('index2.html');
+  // } else {
+    // res.send(console.log('Kek'))
+    // res.render('index.html');
+  // } 
 });
 
 app.get('/Sandbox/sandbox.html', function (req, res) {
@@ -63,10 +72,14 @@ app.post('/auth/', async function (req, res) {
     let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
     if (status == 200) {
       await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
+      Cookies.set('email', req.body.email)
+      return userAuth = true
     }
     res.sendStatus(status)
   } else {
+    let status = 'Externo'
     await logLogin(req.body.email, req.body.data, req.body.horario, 'Tentativas Externas')
+    res.send(status)
   }
 })
 

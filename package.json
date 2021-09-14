@@ -23,11 +23,13 @@
   "heroku-run-build-script": true,
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "ejs": "^1.0.0",
     "emailjs": "^3.5.0",
     "express": "^4.17.1",
-    "nodemailer": "^6.6.3",
-    "google-spreadsheet": "^3.1.15"
+    "google-spreadsheet": "^3.1.15",
+    "js-cookie": "^3.0.1",
+    "nodemailer": "^6.6.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
