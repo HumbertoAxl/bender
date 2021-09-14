@@ -7,8 +7,6 @@ var cookieParser = require('cookie-parser')
 let app = express();
 app.use(cookieParser())
 app.set('port', (process.env.PORT || 8080));
-app.use(express.static(__dirname + '/'));
-app.set('views', __dirname + '/');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
@@ -17,10 +15,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
+app.get('/views/Login', function (req, res) {
   // if () {
-    // console.log('here')
-    res.render('index2.html');
+    console.log('sss')
+    res.render('Login/Login.html');
   // } else {
     // res.send(console.log('Kek'))
     // res.render('index.html');

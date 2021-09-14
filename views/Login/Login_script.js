@@ -1,5 +1,4 @@
 let xhr = new XMLHttpRequest()
-
 async function Login() {
     let email = document.querySelector('#email').value
     let senha = document.querySelector('#senhaAcesso').value
