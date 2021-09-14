@@ -13,7 +13,7 @@
             <div id="menuHeader">
                 <span id='menuHeaderText'>Bender | v0.7.5 | © Monkey Dev | <span id='login' onclick="emConstrucao()">Login</span></span>
             </div>
-            <div class="opcao" onclick="parent.location='./views/EmailSAC/EmailSAC.html'">
+            <div class="opcao" onclick="goTo('SAC')">
                 <img src='./views/EmailSAC/_assets/opcao_EmailSAC.png'></img>
                 <div class="opcaoBloco">
                     <span class="opcaoText">Email Ferimport</span>
@@ -65,6 +65,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="./_common/Common_script.js"></script>
+    <script src="./views/Index/index_script.js"></script>
     <script>
         function emConstrucao() {
             Swal.fire({

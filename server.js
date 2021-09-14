@@ -3,8 +3,9 @@ let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 const Cookies = require('js-cookie')
-var cookieParser = require('cookie-parser')
+let cookieParser = require('cookie-parser')
 let app = express();
+app.use(express.static('./'))
 app.use(cookieParser())
 app.set('port', (process.env.PORT || 8080));
 app.engine('html', require('ejs').renderFile);
@@ -15,14 +16,27 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-app.get('/views/Login', function (req, res) {
-  // if () {
-    console.log('sss')
+let auth = false
+
+app.get('/', function (req, res) {
+  if (!auth) {
+  // res.redirect('Login/Login.html');
+  // }
+  // console.log(Cookies.get('email'))
+  // console.log('Página Inicial')
+  }
+  res.render('index.html');
+});
+
+app.get('/Login', function (req, res) {
+    console.log('Página de Login')
     res.render('Login/Login.html');
-  // } else {
-    // res.send(console.log('Kek'))
-    // res.render('index.html');
-  // } 
+});
+
+app.get('/LinkCarrinho', function (req, res) {
+  console.log('Página de LinkCarrinho')
+  res.sendFile(__dirname + "/" + "LinkCarrinho_style.css")
+  res.render('LinkCarrinho/LinkCarrinho.html');
 });
 
 app.get('/Sandbox/sandbox.html', function (req, res) {
