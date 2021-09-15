@@ -30,20 +30,23 @@
             </div>
         </div>
     </div>
-
     <body onload="isLogged()"></body>
     <script>
         function esqueceuSenha() {
-            sendMessage('Esqueceu a senha?', 'info', 3000, false, 'A senha de acesso é a mesma do seu email Ferimport, caso tenha esquecido a senha, redefina-a no Gmail e tente novamente')
+            sendMessage('Esqueceu a senha?', 'info', null, false, 'A senha de acesso é a mesma do seu email Ferimport, caso tenha esquecido a senha, redefina-a no Gmail e tente novamente')
         }
         function comoAcessar() {
-            sendMessage('Como acessar?', 'info', 7000, false, 'O login no Bender tem integração com o Gmail, logo a senha de acesso é a mesma do seu email Ferimport, caso não tenha uma conta entre em contato com o setor responsável para obter um email Ferimport e conseguir logar.')
+            sendMessage('Como acessar?', 'info', null, false, 'O login no Bender tem integração com o Gmail, logo a senha de acesso é a mesma do seu email Ferimport, caso não tenha uma conta entre em contato com o setor responsável para obter um email Ferimport e conseguir logar.')
         }
         function isLogged() {
             if (Cookies.get('email')) {
                 window.location = "./views/Menu/menu.html"
             } else {
                 document.getElementsByTagName("BODY")[0].style.display = "block";
+                if (Cookies.get('notFirstTime')) {
+                } else {
+                    sendMessage('Primeira vez no Bender!', 'info', null, false, '', 'Olá, aparentemente é sua primeira vez utilizando o Bender! Seja bem vindo/a! <br> Antes de fazer login, ative o acesso a apps menos seguros na sua conta do Google, por enquanto o Bender ainda não tem um certificado de segurança, como é exigido pelo Google, mas é 100% seguro, nenhuma senha é armazenada ou manipulada pelo aplicativo, todas suas informações são passadas diretamente ao Google.<br><br>Link para ativar o acesso: <a href=https://myaccount.google.com/security target="_blank">Aqui</a><br>Tutorial, caso necessário: <a href=https://youtu.be/V4escc0wRYM?t=45 target="_blank">Aqui</a>')
+                }
             } 
         }
     </script>

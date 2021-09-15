@@ -122,3 +122,7 @@ img {
     padding: 0 !important;
     height: 30px !important;
 }
+
+.swal2-popup.swal2-toast .swal2-styled {
+    display: none !important;
+}

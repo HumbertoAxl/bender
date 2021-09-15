@@ -82,5 +82,13 @@ body {
     }
 
     .swal2-styled.swal2-confirm {
+        border-radius: 20px !important;
+        height: 35px !important;
+    }
+
+    .swal2-content {
+        text-align: justify !important;
+    }
+    .swal2-popup.swal2-toast .swal2-styled {
         display: none !important;
     }
