@@ -13,7 +13,7 @@ async function Login() {
                     // xhr.open("POST", "../../views/Menu/")
                     // xhr.send(body);
                     Cookies.set('email', email)
-                    setTimeout(() => window.location.href = './views/Menu/Menu.html', 1200);
+                    setTimeout(() => window.location.href = './views/Menu/menu.html', 1200);
                     break
                 case '535':
                     sendMessage('Email ou senha incorretos!', 'error', 1500, true)

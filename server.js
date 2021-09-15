@@ -22,21 +22,6 @@ app.get('/', function (req, res) {
   res.render('index.html');
 });
 
-app.get('/Login', function (req, res) {
-    console.log('Página de Login')
-    res.render('Login/Login.html');
-});
-
-app.get('/LinkCarrinho', function (req, res) {
-  console.log('Página de LinkCarrinho')
-  res.sendFile(__dirname + "/" + "LinkCarrinho_style.css")
-  res.render('LinkCarrinho/LinkCarrinho.html');
-});
-
-app.get('/Sandbox/sandbox.html', function (req, res) {
-  res.redirect('/')
-});
-
 app.listen(app.get('port'), function () {
 });
 
