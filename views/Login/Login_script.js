@@ -10,7 +10,10 @@ async function Login() {
             switch (xhr.response) {
                 case 'OK':
                     sendMessage('Login efetuado com sucesso!', 'success', 1150, true)
-                    // setTimeout(() => window.location.href = '../../index.html', 1200);
+                    // xhr.open("POST", "../../views/Menu/")
+                    // xhr.send(body);
+                    Cookies.set('email', email)
+                    setTimeout(() => window.location.href = './views/Menu/Menu.html', 1200);
                     break
                 case '535':
                     sendMessage('Email ou senha incorretos!', 'error', 1500, true)

@@ -2,24 +2,25 @@ body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url("../../_common/Background_Body.jpg");
     background-size: auto;
+    display: none;
     }
     
     .container {
     width: 350px;
     margin: auto;
-    margin-top: 150px;
-    height: 400px;
+    margin-top: 95px;
+    height: 425px;
     backdrop-filter: saturate(110%);
-    border: 2px outset white;
-    color: white;
-    border-radius: 3px;
+    border: 2px outset #EEEEEE;
+    color: #EB6A18;
+    background-color: white;
+    border-radius: 10px;
     box-shadow: 10px 10px 10px 10px #0000008a;
     }
 
     .container__title {
-        padding-top: 30px;
+        padding-top: 40px;
         text-align: center;
-        color:white;
     }
 
     h2 {
@@ -38,10 +39,22 @@ body {
     }
     
     button {
+        display: inherit;
         height: 30px;
-        width: 75px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+        border: 2px solid #EB6A18;
+        border-radius: 20px;
+        background-color: white;
+        color: #EB6A18;
         padding: 0;
-        margin-top: 15px;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: rgb(245, 245, 245);
+        cursor: pointer;
     }
     .loginBox {
         font-weight: 600;
@@ -55,6 +68,8 @@ body {
         display: block;
         margin-top: 3px;
         margin-bottom: 3px;
+        background-color: #EEEEEE;
+        border: none;
     }
     
     .help:hover {
@@ -63,7 +78,7 @@ body {
     }
 
     #footer {
-        margin-top: 30px;
+        margin-top: 55px;
     }
 
     .swal2-styled.swal2-confirm {

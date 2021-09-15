@@ -1,6 +1,7 @@
 body {
   background-image: url("../../_common/Background_Body.jpg");
   background-size:auto;
+  display: none;
   }
   
   #container {

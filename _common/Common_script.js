@@ -1,3 +1,14 @@
+async function checkCookies() {
+    let check = Cookies.get('email')
+    try {
+        if (check.includes('@ferimport.com.br')) {
+        document.getElementsByTagName("BODY")[0].style.display = "block";
+        }
+    } catch (e) {
+        window.location.href = '../../'
+    }
+}
+
 function tHide(Elemento, Timer = 1000) {
     Elemento.classList.add("transition");
     setTimeout(() => Elemento.style.display = "none", Timer)

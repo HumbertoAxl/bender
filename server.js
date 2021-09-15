@@ -19,12 +19,6 @@ app.use(bodyParser.json());
 let auth = false
 
 app.get('/', function (req, res) {
-  if (!auth) {
-  // res.redirect('Login/Login.html');
-  // }
-  // console.log(Cookies.get('email'))
-  // console.log('Página Inicial')
-  }
   res.render('index.html');
 });
 
@@ -82,10 +76,9 @@ app.post('/googlesheets/', async function (req, res) {
 app.post('/auth/', async function (req, res) {
   if (req.body.email.includes('@ferimport.com.br')) {
     let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
+    console.log(status)
     if (status == 200) {
       await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
-      Cookies.set('email', req.body.email)
-      return userAuth = true
     }
     res.sendStatus(status)
   } else {

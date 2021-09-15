@@ -1,100 +1,57 @@
 <html>
 
 <head>
-    <title>Bender | Menu</title>
-    <link rel="icon" href=" ./_common/Icon.png">
-    <link rel='stylesheet' type='text/css' href='./views/Index/index_style.css'>
+    <title>Bender | Login</title>
+    <link rel="icon" href="../_common/Icon.png">
+    <link rel="stylesheet" type="text/css" href="./views/Login/Login_style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <div id="container">
-        <div id="menu">
-            <div id="menuHeader">
-                <span id='menuHeaderText'>Bender | v0.7.5 | © Monkey Dev | <span id='login' onclick="emConstrucao()">Login</span></span>
+    <div class="container">
+        <div class="container__title">
+            <h2>Login</h2>
+            <span>Bem vindo/a ao Bender!</span>
+        </div>
+        <div class="loginBox">
+            <div class="info">
+                <label>Email Corporativo<input id="email" name="email" type="text"
+                        placeholder="Email da Ferimport" /></label>
             </div>
-            <div class="opcao" onclick="goTo('SAC')">
-                <img src='./views/EmailSAC/_assets/opcao_EmailSAC.png'></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Email Ferimport</span>
-                    <br>
-                    <span class="opcaoDescription">Enviar email para clientes</span>
-                </div>
+            <div class="info">
+                <label>Senha<input id="senhaAcesso" name="senha" type="password" placeholder="Senha do email"
+                        type="text" /></label>
             </div>
-            <div class="opcao" onclick="parent.location='./views/InserirMarca/InserirMarca.html'">
-                <img src="./views/InserirMarca/_assets/opcao_InserirMarca.png"></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Inserir marca</span>
-                    <br>
-                    <span class="opcaoDescription">Acrescenta a marca no intervalo indicado</span>
-                </div>
-            </div>
-            <div class="opcao" onclick="parent.location='./views/LinkCarrinho/LinkCarrinho.html'">
-                <img src="./views/LinkCarrinho/_assets/opcao_LinkCarrinho.png"></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Gerar link</span>
-                    <br>
-                    <span class="opcaoDescription">Cria URLs diretamente para o carrinho do site</span>
-                </div>
-            </div>
-            <div class="opcao" onclick="parent.location='./views/TestarHTML/TestarHTML.html'">
-                <img src='./views/TestarHTML/_assets/opcao_TestarHTML.png'></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Teste de HTML</span>
-                    <br>
-                    <span class="opcaoDescription">Analisar e testar códigos HTMLs dos produtos</span>
-                </div>
-            </div>
-            <div class="opcao" onclick="parent.location='./views/Drive/Drive.html'">
-                <img src='./views/Drive/_assets/opcao_Drive.png'></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Drive</span>
-                    <br>
-                    <span class="opcaoDescription">Modelos, tutoriais e arquivos da VTEX</span>
-                </div>
-            </div>
-            <div class="opcao" onclick="parent.location='./views/OutrasFuncoes/OutrasFuncoes.html'">
-                <img src='./views/OutrasFuncoes/_assets/opcao_OutrasFuncoes.png'></img>
-                <div class="opcaoBloco">
-                    <span class="opcaoText">Outras funções</span>
-                    <br>
-                    <span class="opcaoDescription">Demais funcionalidades da aplicação</span>
-                </div>
+            <button onclick="Login()">Login</button>
+            <div id="footer">
+                <span class="help" onclick="esqueceuSenha()">Esqueceu a senha?</span>
+                <br>
+                <span class="help" onclick='comoAcessar()'>Como acessar?</span>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="./_common/Common_script.js"></script>
-    <script src="./views/Index/index_script.js"></script>
+
+    <body onload="isLogged()"></body>
     <script>
-        function emConstrucao() {
-            Swal.fire({
-                title: 'Acesso restrito',
-                text: 'Você é o desenvolvedor?',
-                showCancelButton: true,
-                confirmButtonText: `Sim`,
-                cancelButtonText: 'Não'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    isDev()
-                }
-            })
+        function esqueceuSenha() {
+            sendMessage('Esqueceu a senha?', 'info', 3000, false, 'A senha de acesso é a mesma do seu email Ferimport, caso tenha esquecido a senha, redefina-a no Gmail e tente novamente')
         }
-        async function isDev() {
-            let { value: codigoAcesso } = await Swal.fire({
-                title: 'Insira o código de acesso',
-                input: 'password',
-                inputPlaceholder: 'Insira o código de acesso'
-            })
-            if (codigoAcesso == 'nonoca') { //Se veio olhar no inspecionar é corno/a
-                sendMessage('Olá!', 'success', null, false, 'Bem vindo ao sandbox do Bender')
-                setTimeout(() => window.location.href = "https://bender-ferimport.herokuapp.com/Sandbox/sandbox.html", 2000)
+        function comoAcessar() {
+            sendMessage('Como acessar?', 'info', 7000, false, 'O login no Bender tem integração com o Gmail, logo a senha de acesso é a mesma do seu email Ferimport, caso não tenha uma conta entre em contato com o setor responsável para obter um email Ferimport e conseguir logar.')
+        }
+        function isLogged() {
+            if (Cookies.get('email')) {
+                window.location = "./views/Menu/menu.html"
             } else {
-                sendMessage('Código inválido','error', null, false, 'Entre em contato com a administração da Monkey Corporation caso seu acesso seja necessário.')
-            }
+                document.getElementsByTagName("BODY")[0].style.display = "block";
+            } 
         }
     </script>
-
+    <script src="../_common/Common_script.js"></script>
+    <script src="./views/Login/Login_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="../../monkey-modules/tratarData/tratarData.js"></script>
 </body>
 
 </html>
