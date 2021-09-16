@@ -13,7 +13,11 @@ async function Login() {
                 switch (xhr.response) {
                     case 'OK':
                         sendMessage('Login efetuado com sucesso!', 'success', 1150, true)
+                        if (document.querySelector('#keepLoggedIn').checked) {
+                        Cookies.set('email', email, {expires: 365})
+                        } else {
                         Cookies.set('email', email)
+                        }
                         Cookies.set('notFirstTime', true, { expires: 365 })
                         setTimeout(() => window.location.href = './views/Menu/menu.html', 1200);
                         break

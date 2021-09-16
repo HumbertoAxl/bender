@@ -43,13 +43,14 @@ body {
         height: 30px;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 20px;
         width: 30%;
         border: 2px solid #EB6A18;
         border-radius: 20px;
         background-color: white;
         color: #EB6A18;
         padding: 0;
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     button:hover {
@@ -65,7 +66,6 @@ body {
     .loginBox input {
         width: 100%;
         height: 27px;
-        display: block;
         margin-top: 3px;
         margin-bottom: 3px;
         background-color: #EEEEEE;
@@ -78,7 +78,7 @@ body {
     }
 
     #footer {
-        margin-top: 55px;
+        margin-top: 35px;
     }
 
     .swal2-styled.swal2-confirm {
@@ -89,6 +89,13 @@ body {
     .swal2-content {
         text-align: justify !important;
     }
+
     .swal2-popup.swal2-toast .swal2-styled {
         display: none !important;
+    }
+
+    #keepLoggedIn {
+        width: auto;
+        height: auto;
+        margin-right: 5px;
     }

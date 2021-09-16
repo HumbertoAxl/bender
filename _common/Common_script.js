@@ -3,6 +3,8 @@ async function checkCookies() {
     try {
         if (check.includes('@ferimport.com.br')) {
         document.getElementsByTagName("BODY")[0].style.display = "block";
+        } else {
+        window.location.href = '../../'
         }
     } catch (e) {
         window.location.href = '../../'

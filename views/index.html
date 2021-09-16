@@ -23,6 +23,7 @@
                         type="text" /></label>
             </div>
             <button onclick="Login()">Login</button>
+            <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" type="checkbox"><label>Mantenha-me logado</label>
             <div id="footer">
                 <span class="help" onclick="esqueceuSenha()">Esqueceu a senha?</span>
                 <br>
@@ -45,7 +46,7 @@
                 document.getElementsByTagName("BODY")[0].style.display = "block";
                 if (Cookies.get('notFirstTime')) {
                 } else {
-                    sendMessage('Primeira vez no Bender!', 'info', null, false, '', 'Olá, aparentemente é sua primeira vez utilizando o Bender! Seja bem vindo/a! <br> Antes de fazer login, ative o acesso a apps menos seguros na sua conta do Google, por enquanto o Bender ainda não tem um certificado de segurança, como é exigido pelo Google, mas é 100% seguro, nenhuma senha é armazenada ou manipulada pelo aplicativo, todas suas informações são passadas diretamente ao Google.<br><br>Link para ativar o acesso: <a href=https://myaccount.google.com/security target="_blank">Aqui</a><br>Tutorial, caso necessário: <a href=https://youtu.be/V4escc0wRYM?t=45 target="_blank">Aqui</a>')
+                    sendMessage('Bem vindo/a ao Bender!', 'info', null, false, '', 'Olá, de acordo com nossos registros é sua primeira vez utilizando o Bender no novo formato, por favor leia o aviso abaixo:<br><br>Antes de fazer login, ative o acesso a apps menos seguros na sua conta do Google, por enquanto o Bender ainda não tem um certificado de segurança, como é exigido pelo Google, mas é 100% seguro, nenhuma senha é armazenada ou manipulada pelo aplicativo, todas suas informações são passadas diretamente ao Google.<br><br>Link para ativar o acesso: <a href=https://myaccount.google.com/security target="_blank">Aqui</a><br>Tutorial, caso necessário: <a href=https://youtu.be/V4escc0wRYM?t=45 target="_blank">Aqui</a>')
                 }
             } 
         }
