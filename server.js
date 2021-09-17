@@ -16,8 +16,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-let auth = false
-
 app.get('/', function (req, res) {
   res.render('index.html');
 });
@@ -26,9 +24,18 @@ app.listen(app.get('port'), function () {
 });
 
 app.post('/email/', async function (req, res) {
-  let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao,
-    'Olá ' + req.body.nomeCliente + '!\nRecebemos sua solicitação referente ao pedido ' + req.body.numeroPedido + ' feito no dia ' + req.body.dataPedido + ' e já estamos analisando o caso, em breve entraremos em contato'
-  )
+  let conteudoEmail
+  switch (req.body.pathEmail) {
+    // case 'DCC': conteudoEmail = 'Olá ' + req.body.nomeCliente + '!\nRecebemos sua solicitação de devolução referente ao pedido ' + req.body.numeroPedido + ' feito no dia ' + req.body.dataPedido + ' por favor traga o produto para a mesma loja onde o produto foi comprado'
+    case 'DCC': conteudoEmail = 'Devolução por motivo do cliente e o cliente irá trazer o produto'
+    break
+    case 'DCT': conteudoEmail = 'Devolução por motivo de cliente e será enviado por transportadora'
+    break
+    case 'DCF': conteudoEmail = 'Devolução por motivo de cliente e a Ferimport irá coletar o produto'
+    break
+    // case 'DCT': conteudoEmail = 'Devolução por motivo da Ferimport'
+  }
+  let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao, conteudoEmail)
   res.sendStatus(status)
 })
 
@@ -39,12 +46,12 @@ app.post('/googlesheets/', async function (req, res) {
   const sheet = doc.sheetsByTitle['SAC']
   sheet.addRows([
     {
+      Status: "Pendente",
       Responsável: req.body.responsavel,
       Solicitação: req.body.solicitacao,
       Motivo: req.body.motivo,
       Responsável_Envio: req.body.responsavelEnvio,
       Pedido: req.body.pedido,
-      Status: "Pendente",
       Nome_Cliente: req.body.nomeCliente,
       Data_Pedido: req.body.dataPedido,
       Valor_Pedido: req.body.valorPedido,
@@ -61,14 +68,13 @@ app.post('/googlesheets/', async function (req, res) {
 app.post('/auth/', async function (req, res) {
   if (req.body.email.includes('@ferimport.com.br')) {
     let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
-    console.log(status)
     if (status == 200) {
       await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
     }
     res.sendStatus(status)
   } else {
     let status = 'Externo'
-    await logLogin(req.body.email, req.body.data, req.body.horario, 'Tentativas Externas')
+    await logLogin(req.body.email, req.body.data, req.body.horario, 'Externas e sem Auth')
     res.send(status)
   }
 })
@@ -85,4 +91,8 @@ async function logLogin(email, data, horario, tabela) {
       Horário: horario
     }
   ])
+}
+
+async function tipoEmail (tipoEmail) {
+  // case: 1
 }

@@ -46,16 +46,16 @@
                     <br>
                     <select name="solicitacao" id="tipoSolicitacao">
                         <option value="" disabled selected hidden>Tipo da solicitação</option>
-                        <option value="Troca Total">Troca Total</option>
+                        <option value="Troca">Troca</option>
                         <option value="Troca Parcial">Troca Parcial</option>
-                        <option value="Devolução Total">Devolução Total</option>
+                        <option value="Devolução">Devolução</option>
                         <option value="Devolução Parcial">Devolução Parcial</option>
                     </select>
                 </div>
                 <div class="info">
                     <label for="motivo">Motivo</label>
                     <br>
-                    <select name="motivo" id="motivo">
+                    <select name="motivo" id="motivo" onclick="clientOption()">
                         <option value="" disabled selected hidden>Motivo da solicitação</option>
                         <optgroup label="Cliente">
                             <option value="Desistência">Desistência</option>
@@ -69,6 +69,15 @@
                             <option value="Informações erradas no site">Informações erradas no site</option>
                             <option value="Outros">Outros</option>
                         </optgroup>
+                    </select>
+                </div>
+                <div class="info">
+                    <label for="devolução">Envio do produto</label>
+                    <br>
+                    <select name="devolução" id="devolução" onclick="clientOption()">
+                        <option value="" disabled selected hidden>Responsável</option>
+                        <option value="Transportadora">Transportadora</option>
+                        <option value="Ferimport">Coleta Ferimport</option>
                     </select>
                 </div>
                 <div class="info">
@@ -132,5 +141,4 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="../../monkey-modules/tratarData/tratarData.js"></script>
 </body>
-
 </html>

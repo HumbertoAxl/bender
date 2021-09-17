@@ -49,6 +49,7 @@ button {
 
 #logout:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 #menuHeaderText {
     margin-top: 9px;

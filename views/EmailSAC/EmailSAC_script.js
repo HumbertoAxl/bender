@@ -6,7 +6,8 @@ async function enviarDados() {
     let formaPagamento = document.querySelector('select#formaPagamento').value
     let tipoSolicitacao = document.querySelector('select#tipoSolicitacao').value
     let motivo = document.querySelector('select#motivo').value
-    let responsavelEnvio = document.querySelector('#motivo option:checked').parentElement.label
+    let headerMotivo = document.querySelector('#motivo option:checked').parentElement.label
+    let responsavelEnvio = document.querySelector('select#devolução').value
     let notaFiscal = document.querySelector('input#notaFiscal').value
     let valorPedido = document.querySelector('input#valorPedido').value
     let dataPedido = document.querySelector('input#dataPedido').value
@@ -28,10 +29,11 @@ async function enviarDados() {
             break
     }
     let senhaAtendente = document.querySelector('input#senhaAtendente').value
-    await enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente)
+    await enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, headerMotivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente)
 }
 
-async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
+async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPagamento, tipoSolicitacao, motivo, headerMotivo, responsavelEnvio, notaFiscal, valorPedido, dataPedido, detalhes, observacoes, nomeAtendente, emailAtendente, senhaAtendente) {
+    let pathEmail = tipoSolicitacao[0] + headerMotivo[0] + responsavelEnvio[0]
     let xhr = new XMLHttpRequest()
     xhr.open("POST", "../../email/")
     xhr.setRequestHeader("Accept", "application/json")
@@ -41,6 +43,7 @@ async function enviarEmail(nomeCliente, emailCliente, numeroPedido, SKU, formaPa
         "emailCliente": "${emailCliente}",
         "numeroPedido": "${numeroPedido}",
         "tipoSolicitacao": "${tipoSolicitacao}",
+        "pathEmail": "${pathEmail}",
         "dataPedido": "${dataPedido}",
         "nomeAtendente": "${nomeAtendente}",
         "emailAtendente": "${emailAtendente}",
@@ -83,4 +86,15 @@ async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSoli
         "observacoes": "${observacoes}"
     }`
     xhr.send(data)
+}
+
+async function clientOption() {
+    if (document.querySelector('#motivo option:checked').parentElement.label == 'Cliente' && document.querySelector('#devolução > option:nth-child(4)') == null) {
+        document.querySelector('#devolução').insertAdjacentHTML('beforeend', '<option value="Cliente">Cliente</option>')
+    } else if (document.querySelector('#motivo option:checked').parentElement.label == 'Ferimport') {
+        try {
+            document.querySelector('#devolução > option:nth-child(4)').remove()
+            document.querySelector('#devolução').selectedIndex = 0
+        } catch (e) { }
+    }
 }
