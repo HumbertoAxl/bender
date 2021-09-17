@@ -29,11 +29,24 @@ app.post('/email/', async function (req, res) {
     // case 'DCC': conteudoEmail = 'Olá ' + req.body.nomeCliente + '!\nRecebemos sua solicitação de devolução referente ao pedido ' + req.body.numeroPedido + ' feito no dia ' + req.body.dataPedido + ' por favor traga o produto para a mesma loja onde o produto foi comprado'
     case 'DCC': conteudoEmail = 'Devolução por motivo do cliente e o cliente irá trazer o produto'
     break
-    case 'DCT': conteudoEmail = 'Devolução por motivo de cliente e será enviado por transportadora'
+    case 'DCT': conteudoEmail = 'Devolução por motivo de cliente e será enviado por transportadora, custeado pelo mesmo'
     break
     case 'DCF': conteudoEmail = 'Devolução por motivo de cliente e a Ferimport irá coletar o produto'
     break
-    // case 'DCT': conteudoEmail = 'Devolução por motivo da Ferimport'
+    case 'DFT': conteudoEmail = 'Devolução por motivo da Ferimport e será enviado por transportadora, custeado pela empresa'
+    break
+    case 'DFF': conteudoEmail = 'Devolução por motivo da Ferimport e a empresa irá coletar o produto'
+    break
+    case 'TCC': conteudoEmail = 'Troca por motivo do cliente e o cliente irá trazer o produto'
+    break
+    case 'TCT': conteudoEmail = 'Troca por motivo de cliente e será enviado por transportadora, custeado pelo mesmo'
+    break
+    case 'TCF': conteudoEmail = 'Troca por motivo de cliente e a Ferimport irá coletar o produto'
+    break
+    case 'TFT': conteudoEmail = 'Troca por motivo da Ferimport e será enviado por transportadora, custeado pela empresa'
+    break
+    case 'TFF': conteudoEmail = 'Troca por motivo da Ferimport e a empresa irá coletar o produto'
+    break
   }
   let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao, conteudoEmail)
   res.sendStatus(status)
