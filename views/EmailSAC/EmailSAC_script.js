@@ -88,13 +88,13 @@ async function sendtoGS(nomeCliente, numeroPedido, SKU, formaPagamento, tipoSoli
     xhr.send(data)
 }
 
-async function clientOption() {
-    if (document.querySelector('#motivo option:checked').parentElement.label == 'Cliente' && document.querySelector('#devolução > option:nth-child(4)') == null) {
-        document.querySelector('#devolução').insertAdjacentHTML('beforeend', '<option value="Cliente">Cliente</option>')
-    } else if (document.querySelector('#motivo option:checked').parentElement.label == 'Ferimport') {
-        try {
-            document.querySelector('#devolução > option:nth-child(4)').remove()
-            document.querySelector('#devolução').selectedIndex = 0
-        } catch (e) { }
-    }
-}
+// async function clientOption() {
+//     if (document.querySelector('#motivo option:checked').parentElement.label == 'Cliente' && document.querySelector('#devolução > option:nth-child(4)') == null) {
+//         document.querySelector('#devolução').insertAdjacentHTML('beforeend', '<option value="Cliente">Cliente</option>')
+//     } else if (document.querySelector('#motivo option:checked').parentElement.label == 'Ferimport') {
+//         try {
+//             document.querySelector('#devolução > option:nth-child(4)').remove()
+//             document.querySelector('#devolução').selectedIndex = 0
+//         } catch (e) { }
+//     }
+// }

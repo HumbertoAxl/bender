@@ -11,6 +11,8 @@ app.set('port', (process.env.PORT || 8080));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
+let assinaturaSAC = '\n\nAtenciosamente,\nSAC Ferimport\nAtendimento: 71 3621-6414\nWhatsApp: 71 98152-2466\nhttps://www.ferimport.com.br\nsac@ferimport.com.br'
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -27,26 +29,30 @@ app.post('/email/', async function (req, res) {
   let conteudoEmail
   switch (req.body.pathEmail) {
     // case 'DCC': conteudoEmail = 'Olá ' + req.body.nomeCliente + '!\nRecebemos sua solicitação de devolução referente ao pedido ' + req.body.numeroPedido + ' feito no dia ' + req.body.dataPedido + ' por favor traga o produto para a mesma loja onde o produto foi comprado'
-    case 'DCC': conteudoEmail = 'Devolução por motivo do cliente e o cliente irá trazer o produto'
-    break
-    case 'DCT': conteudoEmail = 'Devolução por motivo de cliente e será enviado por transportadora, custeado pelo mesmo'
-    break
-    case 'DCF': conteudoEmail = 'Devolução por motivo de cliente e a Ferimport irá coletar o produto'
-    break
-    case 'DFT': conteudoEmail = 'Devolução por motivo da Ferimport e será enviado por transportadora, custeado pela empresa'
-    break
-    case 'DFF': conteudoEmail = 'Devolução por motivo da Ferimport e a empresa irá coletar o produto'
-    break
-    case 'TCC': conteudoEmail = 'Troca por motivo do cliente e o cliente irá trazer o produto'
-    break
-    case 'TCT': conteudoEmail = 'Troca por motivo de cliente e será enviado por transportadora, custeado pelo mesmo'
-    break
-    case 'TCF': conteudoEmail = 'Troca por motivo de cliente e a Ferimport irá coletar o produto'
-    break
-    case 'TFT': conteudoEmail = 'Troca por motivo da Ferimport e será enviado por transportadora, custeado pela empresa'
-    break
-    case 'TFF': conteudoEmail = 'Troca por motivo da Ferimport e a empresa irá coletar o produto'
-    break
+    case 'DCC': conteudoEmail = 'Devolução por motivo do cliente e o cliente irá trazer o produto' + assinaturaSAC
+      break
+    case 'DCT': conteudoEmail = 'Devolução por motivo de cliente e será enviado por transportadora, custeado pelo mesmo' + assinaturaSAC
+      break
+    case 'DCF': conteudoEmail = 'Devolução por motivo de cliente e a Ferimport irá coletar o produto' + assinaturaSAC
+      break
+    case 'DFT': conteudoEmail = 'Devolução por motivo da Ferimport e será enviado por transportadora, custeado pela empresa' + assinaturaSAC
+      break
+    case 'DFF': conteudoEmail = 'Devolução por motivo da Ferimport e a empresa irá coletar o produto' + assinaturaSAC
+      break
+    case 'DFC': conteudoEmail = 'Devolução por motivo da Ferimport e o cliente irá trazer o produto' + assinaturaSAC
+      break
+    case 'TCC': conteudoEmail = 'Troca por motivo do cliente e o cliente irá trazer o produto' + assinaturaSAC
+      break
+    case 'TCT': conteudoEmail = 'Troca por motivo de cliente e será enviado por transportadora, custeado pelo mesmo' + assinaturaSAC
+      break
+    case 'TCF': conteudoEmail = 'Troca por motivo de cliente e a Ferimport irá coletar o produto' + assinaturaSAC
+      break
+    case 'TFT': conteudoEmail = 'Troca por motivo da Ferimport e será enviado por transportadora, custeado pela empresa' + assinaturaSAC
+      break
+    case 'TFF': conteudoEmail = 'Troca por motivo da Ferimport e a empresa irá coletar o produto' + assinaturaSAC
+      break
+    case 'TFC': conteudoEmail = 'Troca por motivo da Ferimport e o cliente irá trazer o produto' + assinaturaSAC
+      break
   }
   let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao, conteudoEmail)
   res.sendStatus(status)
@@ -106,6 +112,6 @@ async function logLogin(email, data, horario, tabela) {
   ])
 }
 
-async function tipoEmail (tipoEmail) {
+async function tipoEmail(tipoEmail) {
   // case: 1
 }

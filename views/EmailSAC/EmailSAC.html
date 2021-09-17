@@ -55,7 +55,7 @@
                 <div class="info">
                     <label for="motivo">Motivo</label>
                     <br>
-                    <select name="motivo" id="motivo" onclick="clientOption()">
+                    <select name="motivo" id="motivo">
                         <option value="" disabled selected hidden>Motivo da solicitação</option>
                         <optgroup label="Cliente">
                             <option value="Desistência">Desistência</option>
@@ -74,10 +74,11 @@
                 <div class="info">
                     <label for="devolução">Envio do produto</label>
                     <br>
-                    <select name="devolução" id="devolução" onclick="clientOption()">
+                    <select name="devolução" id="devolução">
                         <option value="" disabled selected hidden>Responsável</option>
-                        <option value="Transportadora">Transportadora</option>
+                        <option value="Transportadora">Envio por transportadora</option>
                         <option value="Ferimport">Coleta Ferimport</option>
+                        <option value="Cliente">Cliente vai trazer</option>
                     </select>
                 </div>
                 <div class="info">
