@@ -4,6 +4,7 @@ body {
     background-size: auto;
     display: none;
 }
+
 #container {
     background-color: #24375c;
     border: white;
@@ -17,9 +18,11 @@ body {
     cursor: default;
     box-shadow: 12px 12px 12px #0000008a;
 }
+
 #menu {
     color: white;
 }
+
 button {
     -webkit-text-stroke-width: 0;
     float: right;
@@ -29,13 +32,16 @@ button {
     margin-top: 10px;
     padding: 0;
 }
+
 .opcao {
     height: 77px;
     -webkit-text-stroke-width: 0;
 }
+
 .background {
     opacity: 0.2;
 }
+
 #menuHeader {
     border-top-left-radius: 6.5px;
     border-top-right-radius: 6.5px;
@@ -51,74 +57,92 @@ button {
     text-decoration: underline;
     cursor: pointer;
 }
+
 #menuHeaderText {
     margin-top: 9px;
     display: inline-block;
 }
+
 .opcao:nth-child(2) {
     background-color: #4EA5D262;
 }
+
 .opcao:nth-child(3) {
     background-color: #3EBCB894;
 }
+
 .opcao:nth-child(4) {
     background-color: #039ba386;
 }
+
 .opcao:nth-child(5) {
     background-color: #2651cc6b;
 }
+
 .opcao:nth-child(6) {
     background-color: #7900b16b;
 }
+
 .opcao:nth-child(7) {
     background-color: #260a6b;
     border-bottom-left-radius: 6.5px;
     border-bottom-right-radius: 6.5px;
     border-bottom: 2px white solid;
 }
-.opcao:nth-child(2):hover{
-    background-color:#4EA5D2cf;
+
+.opcao:nth-child(2):hover {
+    background-color: #4EA5D2cf;
     transition: background-color 0.3s;
 }
-.opcao:nth-child(3):hover{
-    background-color:#45d0cbcf;
+
+.opcao:nth-child(3):hover {
+    background-color: #45d0cbcf;
     transition: background-color 0.3s;
 }
+
 .opcao:nth-child(4):hover {
     background-color: #02eaf786;
     transition: background-color 0.3s;
 }
-.opcao:nth-child(5):hover{
+
+.opcao:nth-child(5):hover {
     background-color: #1b4fdfce;
     transition: background-color 0.3s;
 }
-.opcao:nth-child(6):hover{
+
+.opcao:nth-child(6):hover {
     background-color: #7900b1bd;
     transition: background-color 0.3s;
 }
-.opcao:nth-child(7):hover{
+
+.opcao:nth-child(7):hover {
     background-color: #481abd;
     transition: background-color 0.3s;
 }
+
 .opcaoBloco {
-margin-left: 12px;
-display: inline-block;
+    margin-left: 12px;
+    display: inline-block;
 }
+
 .opcaoText {
     margin-top: 15px;
     font-size: 1.4em;
     font-weight: 700;
     display: inline-block;
 }
+
 .opcaoDescription {
     font-size: 0.8em;
     font-weight: 100;
 }
+
 img {
     margin-top: 13px;
     margin-left: 20px;
     float: left;
 }
+
 .swal2-styled {
     padding: 0 !important;
     height: 30px !important;

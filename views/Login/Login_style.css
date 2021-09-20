@@ -56,11 +56,7 @@ body {
     }
 
     button:hover {
-        /* background-color: #EEEEEE; */
         cursor: pointer;
-        /* border: 2px solid #da5500; */
-        /* height: 33px; */
-        /* width: 31%; */
     }
     button:active {
         background-color: #b44500;

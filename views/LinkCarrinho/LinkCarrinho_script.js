@@ -1,7 +1,7 @@
 function Adicionar() {
     Hide(document.getElementById("resultado"))
     let index = document.querySelectorAll('#menu > div.box').length + 1
-    if (index <= 7) {
+    if (index <= 8) {
         document.querySelector('#menu').insertAdjacentHTML(
             'beforeend',
             `<div class="box">

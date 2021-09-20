@@ -6,22 +6,44 @@ display: none;
 }
 
 #container {
-background-image: url("../InserirMarca/_assets/Container_InserirMarca.jpg");
-border: white;
-border-style: solid;
-border-radius: 10px;
-width: 650px;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-height: 500px;
-box-shadow: 12px 12px 12px #0000008a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    border: #EB6A18;
+    border-style: solid;
+    border-radius: 10px;
+    width: 650px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    box-shadow: 12px 12px 12px #0000008a;
+    color: #EB6A18;
+    font-weight: 600;
 }
 
 button {
+    position: relative;
     height: 30px;
-    width: 75px;
+    width: 85px;
+    border: 2px solid #EB6A18;
+    border-radius: 15px;
+    background-color: #EB6A18;
+    color: white;
     padding: 0;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 3px 0px #000000ad;
+    font-weight: bold;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #b44500;
+    border: 2px solid #b44500;
 }
 
 #botoes {

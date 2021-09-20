@@ -1,22 +1,24 @@
 body {
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-image: url("../../_common/Background_Body.jpg");
-background-size: auto;
-display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../_common/Background_Body.jpg");
+    background-size: auto;
+    display: none;
 }
 
 #container {
-background-image: url("./_assets/Container_LinkCarrinho.jpg");
-border: white;
-border-style: solid;
-border-radius: 10px;
-width: 400px;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-height: 500px;
-position: relative;
-box-shadow: 12px 12px 12px #0000008a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    border: #EB6A18;
+    border-style: solid;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    box-shadow: 12px 12px 12px #0000008a;
+    color: #EB6A18;
+    font-weight: 600;
 }
 
 .quantidade {
@@ -28,6 +30,7 @@ box-shadow: 12px 12px 12px #0000008a;
     justify-content: center;
     font-weight: 600;
     margin-bottom: 30px;
+    color: #EB6A18;
 }
 
 input {
@@ -42,13 +45,38 @@ button {
 }
 
 #botoes {
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    position: absolute;
-    bottom: 60px;
-    left: 10%;
-    right: 10%;
+display: flex;
+margin-left: auto;
+margin-right: auto;
+justify-content: center;
+position: absolute;
+top: 50%;
+margin-left: 15px;
+}
+
+button {
+    position: relative;
+    height: 30px;
+    width: 85px;
+    border: 2px solid #EB6A18;
+    border-radius: 15px;
+    background-color: #EB6A18;
+    color: white;
+    padding: 0;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 3px 0px #000000ad;
+    font-weight: bold;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #b44500;
+    border: 2px solid #b44500;
 }
 
 p {
@@ -59,7 +87,7 @@ p {
 }
 
 #menu {
-    color: white;   
+    color: white;
     padding-top: 20px;
 }
 
@@ -74,7 +102,7 @@ p {
     right: 10%;
 }
 
-#resultadoCopiar { 
+#resultadoCopiar {
     width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
@@ -82,8 +110,8 @@ p {
     text-decoration: underline;
 }
 
-#resultadoCopiar:hover{
-    cursor:pointer;
+#resultadoCopiar:hover {
+    cursor: pointer;
 }
 
 .swal2-styled.swal2-confirm {

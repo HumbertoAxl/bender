@@ -1,21 +1,24 @@
 body {
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-image: url("../../_common/Background_Body.jpg");
-background-size: auto;
-display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../_common/Background_Body.jpg");
+    background-size: auto;
+    display: none;
 }
 
 #container {
-background-image: url("../InserirMarca/_assets/Container_InserirMarca.jpg");
-border: white;
-border-style: solid;
-border-radius: 10px;
-width: 400px;
-margin-top: 20px;
-margin-left: auto;
-margin-right: auto;
-height: 500px;
-box-shadow: 12px 12px 12px #0000008a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    border: #EB6A18;
+    border-style: solid;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+    box-shadow: 12px 12px 12px #0000008a;
+    color: #EB6A18;
+    font-weight: 600;
 }
 
 textarea {
@@ -25,8 +28,26 @@ textarea {
 
 button {
     height: 30px;
-    width: 75px;
+    width: 85px;
+    border: 2px solid #EB6A18;
+    border-radius: 15px;
+    background-color: #EB6A18;
+    color: white;
     padding: 0;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 3px 0px #000000ad;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #b44500;
+    border: 2px solid #b44500;
 }
 
 #botoes {
@@ -36,14 +57,13 @@ button {
 }
 
 p {
-    font-weight: bold;
-    font-size: 1.8em;
-    -webkit-text-stroke-width: 0.65px;
-    -webkit-text-stroke-color: #000;
+    font-weight: 700;
+    font-size: 1.6em;
+    color: #EB6A18;
 }
 
 #menu {
-    color: white;   
+    color: white;
     padding-top: 0px;
     text-align: center;
 }
@@ -55,34 +75,41 @@ p {
     display: none;
 }
 
-#resultadoCopiar { 
+#resultadoCopiar {
     width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
     font-weight: 700;
     text-decoration: underline;
+    color: #EB6A18;
 }
 
-#resultadoCopiar:hover{
-    cursor:pointer;
+#resultadoCopiar:hover {
+    cursor: pointer;
 }
 
 #inserirMarca {
-font-size: 0.8em;
-color:white;
-margin-left: 30px;
+    font-size: 0.8em;
+    color: white;
+    margin-left: 30px;
 }
 
 #Marca {
-    width: 40%;
-    margin-right: 30px;
-    margin-top: 8px;
+    width: 45%;
+    margin-right: 35px;
+    margin-top: 5px;
     float: right;
     -webkit-text-stroke-width: 0px;
     -webkit-text-stroke-color: #000;
 }
 
+#Seta {
+    font-size: 1.5em;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #EB6A18;
+}
+
 .swal2-styled.swal2-confirm {
     display: none !important;
-    }
-    
+}
