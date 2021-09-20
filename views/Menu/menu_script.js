@@ -24,7 +24,6 @@ app.mount('#menuHeader')
 
 let xhr = new XMLHttpRequest()
 async function goTo(url) {
-    // alert('Clicado: ' + url)
     xhr.send(await sendToServer(email, url))
     xhr.onreadystatechange = async function () {
         if (xhr.readyState === 4) {
