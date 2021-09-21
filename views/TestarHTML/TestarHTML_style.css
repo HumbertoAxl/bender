@@ -146,8 +146,14 @@ table.transition {
   font-weight: 400;
 }
 
-#testarHTML {
+.testarHTML {
   margin-top: 10px;
+}
+
+h3 {
+  padding-top: 5px;
+  margin-left: 5px;
+  margin-top: 0px;
 }
 
 .swal2-styled.swal2-confirm {

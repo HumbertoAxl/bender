@@ -1,5 +1,7 @@
 function Testar() {
-    Hide(document.getElementById('testarHTML'))
+    try {
+        Hide(document.getElementById('testarHTML'))
+    } catch (e) { }
     if (document.getElementById('isHTML').checked == false && document.getElementById('isTabela').checked == false) {
         sendMessage('Escolha uma opção', 'warning')
     } else {
@@ -14,7 +16,13 @@ function Testar() {
                 document.getElementById('tabela').innerHTML = document.getElementById('codigo').value
             } else {
                 sendMessage('Código inserido com sucesso', 'success')
-                document.getElementById('testarHTML').innerHTML = document.getElementById('codigo').value
+                let codigosHTML = document.getElementById('codigo').value
+                let numCodigos = codigosHTML.split('SEPARADORHTML').length + 1
+                for (let i = 2; i <= numCodigos; i++) {
+                codigosHTML = codigosHTML.replace('SEPARADORHTML','</div><hr><h3>Código '+i+':</h3><div class="testarHTML">')
+                }
+                console.log(codigosHTML)
+                document.getElementById('testarHTML').innerHTML = '<div class="testarHTML"><h3>Código 1:</h3>'+codigosHTML
                 tShow(document.getElementById('testarHTML'), 999)
             }
         }
@@ -23,12 +31,14 @@ function Testar() {
 
 function CheckedHTML() {
     if (document.getElementById('isHTML').checked == true) {
-    document.getElementById('opcoesHTML').style.display = 'block'
+        document.getElementById('opcoesHTML').style.display = 'block'
     } else {
-    document.getElementById('opcoesHTML').style.display = 'none'
+        document.getElementById('opcoesHTML').style.display = 'none'
     }
     document.getElementById('isTabela').checked = false
-    Hide(document.getElementById('tabela'))
+    try {
+        Hide(document.getElementById('tabela'))
+    } catch (e) { }
     if (document.getElementById('HTML_FundoBranco').checked == true) {
         document.getElementById('testarHTML').style.backgroundColor = 'white'
     }
