@@ -11,9 +11,14 @@ function Testar() {
         } else {
             if (document.getElementById('isTabela').checked) {
                 sendMessage('Tabela inserida com sucesso', 'success')
+                let codigosHTML = document.getElementById('codigo').value
+                let numCodigos = codigosHTML.split('SEPARADORHTML').length + 1
+                for (let i = 2; i <= numCodigos; i++) {
+                codigosHTML = codigosHTML.replace('SEPARADORHTML','<hr><h3 style="color:white">Tabela '+i+':</h3>')
+                }
+                document.getElementById('testarHTML').innerHTML = '<h3 style="color:white">Tabela 1:</h3>'+codigosHTML
+                // document.getElementById('tabela').innerHTML = document.getElementById('codigo').value
                 tShow(document.getElementById('testarHTML'), 999)
-                document.getElementById('testarHTML').innerHTML = '<table id ="tabela"></table>'
-                document.getElementById('tabela').innerHTML = document.getElementById('codigo').value
             } else {
                 sendMessage('Código inserido com sucesso', 'success')
                 let codigosHTML = document.getElementById('codigo').value
@@ -21,7 +26,6 @@ function Testar() {
                 for (let i = 2; i <= numCodigos; i++) {
                 codigosHTML = codigosHTML.replace('SEPARADORHTML','</div><hr><h3>HTML '+i+':</h3><div class="testarHTML">')
                 }
-                console.log(codigosHTML)
                 document.getElementById('testarHTML').innerHTML = '<div class="testarHTML"><h3>HTML 1:</h3>'+codigosHTML
                 tShow(document.getElementById('testarHTML'), 999)
             }
