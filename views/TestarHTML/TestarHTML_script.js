@@ -17,7 +17,6 @@ function Testar() {
                 codigosHTML = codigosHTML.replace('SEPARADORHTML','<hr><h3 style="color:white">Tabela '+i+':</h3>')
                 }
                 document.getElementById('testarHTML').innerHTML = '<h3 style="color:white">Tabela 1:</h3>'+codigosHTML
-                // document.getElementById('tabela').innerHTML = document.getElementById('codigo').value
                 tShow(document.getElementById('testarHTML'), 999)
             } else {
                 sendMessage('Código inserido com sucesso', 'success')
