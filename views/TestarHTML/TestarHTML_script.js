@@ -19,10 +19,10 @@ function Testar() {
                 let codigosHTML = document.getElementById('codigo').value
                 let numCodigos = codigosHTML.split('SEPARADORHTML').length + 1
                 for (let i = 2; i <= numCodigos; i++) {
-                codigosHTML = codigosHTML.replace('SEPARADORHTML','</div><hr><h3>Código '+i+':</h3><div class="testarHTML">')
+                codigosHTML = codigosHTML.replace('SEPARADORHTML','</div><hr><h3>HTML '+i+':</h3><div class="testarHTML">')
                 }
                 console.log(codigosHTML)
-                document.getElementById('testarHTML').innerHTML = '<div class="testarHTML"><h3>Código 1:</h3>'+codigosHTML
+                document.getElementById('testarHTML').innerHTML = '<div class="testarHTML"><h3>HTML 1:</h3>'+codigosHTML
                 tShow(document.getElementById('testarHTML'), 999)
             }
         }
