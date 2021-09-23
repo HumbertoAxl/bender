@@ -46,3 +46,7 @@ async function sendToServer(email, senha, url) {
     }`
     return data
 }
+
+window.onbeforeunload = function(){
+    Cookies.remove('email')
+  };

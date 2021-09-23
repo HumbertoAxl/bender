@@ -111,7 +111,3 @@ async function logLogin(email, data, horario, tabela) {
     }
   ])
 }
-
-async function tipoEmail(tipoEmail) {
-  // case: 1
-}
