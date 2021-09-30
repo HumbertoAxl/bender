@@ -19,20 +19,7 @@ const app = Vue.createApp({
         }
     }
 })
-
 app.mount('#menuHeader')
-
-let xhr = new XMLHttpRequest()
-async function goTo(url) {
-    xhr.send(await sendToServer(email, url))
-    xhr.onreadystatechange = async function () {
-        if (xhr.readyState === 4) {
-            console.log(xhr.response)
-            switch (xhr.response) {
-            }
-        }
-    }
-}
 
 async function sendToServer(email, senha, url) {
     xhr.open("POST", './bender/auth' + url)
@@ -46,7 +33,3 @@ async function sendToServer(email, senha, url) {
     }`
     return data
 }
-
-// window.onbeforeunload = function(){
-//     Cookies.remove('email')
-//   };
