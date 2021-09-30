@@ -152,12 +152,12 @@ img {
     display: none !important;
 }
 
-/* .swal2-content {
+.swal2-content {
     text-align: justify !important;
-    padding: 10px 10px 0px 10px !important;
+    /* padding: 10px 10px 0px 10px !important; */
 }
 
-.swal2-popup {
+/* .swal2-popup {
     border-radius: 20px !important;
 }*/
 
