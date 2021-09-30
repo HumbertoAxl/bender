@@ -152,21 +152,20 @@ img {
     display: none !important;
 }
 
-.swal2-content {
+/* .swal2-content {
     text-align: justify !important;
     padding: 10px 10px 0px 10px !important;
-    /* padding-bottom: 5px !important; */
 }
 
 .swal2-popup {
     border-radius: 20px !important;
-}
+}*/
 
 .swal2-styled.swal2-confirm {
     width: 80px !important;
 }
 
-.swal2-icon {
+/* .swal2-icon {
     width: 4em !important;
     height: 4em !important;
     margin: 10px !important;
@@ -174,4 +173,4 @@ img {
 
 .swal2-icon .swal2-icon-content {
     font-size: 2.5em !important;
-}
+} */
