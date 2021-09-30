@@ -2,6 +2,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
+const apiVTEX = require('./apis/listarProdutosPorSKU')
 const Cookies = require('js-cookie')
 let cookieParser = require('cookie-parser')
 let app = express();
@@ -111,3 +112,8 @@ async function logLogin(email, data, horario, tabela) {
     }
   ])
 }
+
+app.post('/carrinho/', async function (req, res) {
+let a = await apiVTEX.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto)
+res.send(a)
+})
