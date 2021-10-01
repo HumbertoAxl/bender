@@ -15,6 +15,8 @@ async function checkCookies() {
                 break
                 case url.includes('Drive'): await logBender('Drive')
                 break
+                case url.includes('LinkCarrinho'): await logBender('LinkCarrinho')
+                break
                 case url.includes('OutrasFuncoes'): await logBender('OutrasFuncoes')
                 break
                 default: console.log('erro')
