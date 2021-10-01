@@ -2,8 +2,7 @@ let express = require('express');
 let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
-const apiVTEX = require('./apis/listarProdutosPorSKU')
-const Cookies = require('js-cookie')
+const apiVTEX = require('./apis/listarProdutosPorSKU')  
 let cookieParser = require('cookie-parser')
 let app = express();
 app.use(express.static('./'))
@@ -89,7 +88,7 @@ app.post('/auth/', async function (req, res) {
   if (req.body.email.includes('@ferimport.com.br')) {
     let status = await bendermail2.auth(req.body.email, req.body.senha, req.body.data, req.body.horario)
     if (status == 200) {
-      await logLogin(req.body.email, req.body.data, req.body.horario, 'Entradas')
+      await logLogin(req.body.email, req.body.data, req.body.horario, 'Login', 'Entradas')
     }
     res.sendStatus(status)
   } else {
@@ -99,7 +98,12 @@ app.post('/auth/', async function (req, res) {
   }
 })
 
-async function logLogin(email, data, horario, tabela) {
+app.post('/log/', async (req, res) => {
+  let a = await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela)
+  res.send(a)
+})
+
+async function logLogin(email, data, horario, caminho, tabela) {
   const doc = benderSheets.id('1g6LiHP4yB6CKbGM3nDfA7CLQ3VL23lqi8Sa8-LhGz4U')
   await doc.useServiceAccountAuth(benderSheets.credencials);
   await doc.loadInfo();
@@ -108,7 +112,8 @@ async function logLogin(email, data, horario, tabela) {
     {
       Email: email,
       Data: data,
-      Horário: horario
+      Horário: horario,
+      Caminho: caminho,
     }
   ])
 }

@@ -23,7 +23,7 @@
                         type="text" /></label>
             </div>
             <button onclick="Login()">Login</button>
-            <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" type="checkbox"><label>Mantenha-me logado</label>
+            <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn" type="checkbox"><label id='keepLoggedInText' onclick="document.querySelector(`#keepLoggedIn`).checked=!document.querySelector(`#keepLoggedIn`).checked">Mantenha-me logado</label>
             <div id="footer">
                 <span class="help" onclick="esqueceuSenha()">Esqueceu a senha?</span>
                 <br>
