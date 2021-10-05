@@ -1,8 +1,8 @@
 body {
-font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-image: url("../../_common/Background_Body.jpg");
-background-size: auto;
-display: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("../../_common/Background_Body.jpg");
+    background-size: auto;
+    display: none;
 }
 
 #container {
@@ -49,6 +49,7 @@ button:active {
     background-color: #b44500;
     border: 2px solid #b44500;
 }
+
 .botoes:nth-of-type(1) {
     margin-right: 30px;
 }
@@ -58,21 +59,22 @@ button:active {
 }
 
 #menu {
-    color: white;   
+    color: white;
     padding-top: 0px;
     text-align: center;
 }
+
 #opcoes {
     margin-left: 30px;
 }
 
 #verificarMarca {
-margin-top: 10px;
-font-size: 1em;
+    margin-top: 10px;
+    font-size: 1em;
 }
 
 span {
-font-weight: 600;
+    font-weight: 600;
 }
 
 #Marca {
@@ -86,11 +88,10 @@ font-weight: 600;
 }
 
 #containerRodape {
-    margin-top: 88%;
+    margin-top: 65%;
 }
 
 #buttonVoltar {
-    float:left;
+    float: left;
     margin-left: 30px;
-
 }

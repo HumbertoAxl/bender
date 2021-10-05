@@ -2,7 +2,8 @@ let express = require('express');
 let bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
-const apiVTEX = require('./apis/listarProdutosPorSKU')  
+const listarProdutosAPI = require('./apis/listarProdutosPorSKU')
+const removerImagemAPI = require('./apis/removerImagemPorSKU')
 let cookieParser = require('cookie-parser')
 let app = express();
 app.use(express.static('./'))
@@ -119,6 +120,11 @@ async function logLogin(email, data, horario, caminho, tabela) {
 }
 
 app.post('/carrinho/', async function (req, res) {
-let a = await apiVTEX.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto)
+let a = await listarProdutosAPI.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto)
+res.send(a)
+})
+
+app.post('/removerImagem/', async function (req, res) {
+let a = await removerImagemAPI.removerImagem(req.body.sku, req.body.user)
 res.send(a)
 })
