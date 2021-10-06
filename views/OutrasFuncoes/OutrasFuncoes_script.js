@@ -27,7 +27,9 @@ function Listar() {
 }
 
 async function Remover() {
-    let sku = parseInt(document.querySelector(`input[name='ImagemSKU']`).value)
+    let sku = document.querySelector(`input[name='ImagemSKU']`).value
+    let element = document.querySelector('body > div:nth-child(2) > table')
+    let lista = document.querySelector('body > div:nth-child(2) > table > tbody')
     if (sku == '') {
         sendMessage('Campo do SKU vazio!', 'info', null)
     } else {
@@ -44,11 +46,17 @@ async function Remover() {
             })
         });
         switch (response.status) {
-            case 200: sendMessage('Imagens removidas com sucesso!', 'success', null, true)
+            case 200: sendMessage('Operação concluída com sucesso!', 'success', null, true)
+                break
+            case 403: sendMessage('Você não tem permissão!', 'error', null, true)
                 break
             case 404: sendMessage('SKU não encontrado!', 'error', null, true)
                 break
-            case 403: sendMessage('Você não tem permissão!', 'error', null, true)
         }
+        let resposta = await response.text()
+        setTimeout(() => element.style.display = "table", 1200)
+        resposta = resposta.replace(/","/g, '')
+        lista.innerHTML = resposta.substring(2).slice(0, -2)
+
     }
 }

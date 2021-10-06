@@ -66,12 +66,12 @@ async function listarProdutos() {
     if (!erro) {
     let sku = [], quantidadeProduto = []
     let element = document.querySelector('body > div:nth-child(4) > table')
+    let lista = document.querySelector('body > div:nth-child(4) > table > tbody')
     let quantidadeSKU = document.querySelectorAll('.produtos input').length
     for (let i = 0; i < quantidadeSKU; i++) {
     sku.push(document.querySelector(`#prod${i+1}`).value)
     quantidadeProduto.push(document.querySelector(`input#quant${i+1}`).value)
     }
-    let lista = document.querySelector('body > div:nth-child(4) > table > tbody')
     const response = await fetch('../../carrinho/', {
         method: 'POST',
         headers: {

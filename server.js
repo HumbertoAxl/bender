@@ -99,9 +99,12 @@ app.post('/auth/', async function (req, res) {
 })
 
 app.post('/log/', async function (req, res) {
-  try {
-    res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
-  } catch (e) {
+  let version = 'dev'
+  if (version == 'prod') {
+    try {
+      res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
+    } catch (e) {
+    }
   }
 })
 
@@ -126,7 +129,7 @@ app.post('/carrinho/', async function (req, res) {
 
 app.post('/removerImagem/', async function (req, res) {
   try {
-    res.sendStatus(await removerImagemAPI.removerImagem(req.body.sku, req.body.user))
+    res.send(await removerImagemAPI.removerImagem(req.body.sku, req.body.user))
   } catch (e) {
   }
 })
