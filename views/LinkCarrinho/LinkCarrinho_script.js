@@ -81,7 +81,7 @@ async function listarProdutos() {
         body: JSON.stringify({ sku: sku, quantidadeSKU: quantidadeSKU, quantidadeProduto: quantidadeProduto })
     });
     if (!response.ok) {
-        alert('Erro')
+        sendMessage("Erro inesperado!", "info", 2000)
     }
     let resposta = await response.text()
     element.style.display = "table";
