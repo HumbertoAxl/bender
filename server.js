@@ -55,8 +55,7 @@ app.post('/email/', async function (req, res) {
     case 'TFC': conteudoEmail = 'Troca por motivo da Ferimport e o cliente irá trazer o produto' + assinaturaSAC
       break
   }
-  let status = await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao, conteudoEmail)
-  res.sendStatus(status)
+  res.sendStatus(await bendermail2.send(req.body.nomeAtendente, req.body.emailAtendente, req.body.senhaAtendente, req.body.nomeCliente, req.body.emailCliente, 'Pedido número ' + req.body.numeroPedido + ' - ' + req.body.tipoSolicitacao, conteudoEmail))
 })
 
 app.post('/googlesheets/', async function (req, res) {
@@ -95,13 +94,15 @@ app.post('/auth/', async function (req, res) {
   } else {
     let status = 'Externo'
     await logLogin(req.body.email, req.body.data, req.body.horario, 'Externas e sem Auth')
-    res.send(status)
+    res.sendStatus(status)
   }
 })
 
-app.post('/log/', async (req, res) => {
-  let a = await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela)
-  res.send(a)
+app.post('/log/', async function (req, res) {
+  try {
+    res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
+  } catch (e) {
+  }
 })
 
 async function logLogin(email, data, horario, caminho, tabela) {
@@ -120,11 +121,12 @@ async function logLogin(email, data, horario, caminho, tabela) {
 }
 
 app.post('/carrinho/', async function (req, res) {
-let a = await listarProdutosAPI.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto)
-res.send(a)
+  res.sendStatus(await listarProdutosAPI.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto))
 })
 
 app.post('/removerImagem/', async function (req, res) {
-let a = await removerImagemAPI.removerImagem(req.body.sku, req.body.user)
-res.send(a)
+  try {
+    res.sendStatus(await removerImagemAPI.removerImagem(req.body.sku, req.body.user))
+  } catch (e) {
+  }
 })

@@ -30,7 +30,7 @@ async function Remover() {
     let sku = parseInt(document.querySelector(`input[name='ImagemSKU']`).value)
     if (sku == '') {
         sendMessage('Campo do SKU vazio!', 'info', null)
-    } else {    
+    } else {
         let user = Cookies.get('email').split('@')
         const response = await fetch('../../removerImagem/', {
             method: 'POST',
@@ -43,13 +43,12 @@ async function Remover() {
                 user: user[0]
             })
         });
-        let teste = await response.text()
-        console.log(teste)
-        // switch (response.status) {
-            // case 200: sendMessage('Imagem deletada com sucesso!', 'success', null, 'true')
-                // break
-            // case 403: sendMessage('Você não tem acesso, entre em contato com o desenvolvedor', 'error', null, false)
-                // break
-        // }
+        switch (response.status) {
+            case 200: sendMessage('Imagens removidas com sucesso!', 'success', null, true)
+                break
+            case 404: sendMessage('SKU não encontrado!', 'error', null, true)
+                break
+            case 403: sendMessage('Você não tem permissão!', 'error', null, true)
+        }
     }
 }
