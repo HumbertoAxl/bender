@@ -14,7 +14,7 @@ exports.listarProdutosPorSKU = async function (sku, quantidadeSKU, quantidadePro
       }
     };
 
-    fetch(url, options)
+    await fetch(url, options)
       .then(res => res.json())
       .then(function (json) {
         linkImagem = `<tr><td><img src=${json.ImageUrl}></td>`

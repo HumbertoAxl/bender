@@ -124,7 +124,7 @@ async function logLogin(email, data, horario, caminho, tabela) {
 }
 
 app.post('/carrinho/', async function (req, res) {
-  res.sendStatus(await listarProdutosAPI.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto))
+  res.send(await listarProdutosAPI.listarProdutosPorSKU(req.body.sku, req.body.quantidadeSKU, req.body.quantidadeProduto))
 })
 
 app.post('/removerImagem/', async function (req, res) {
