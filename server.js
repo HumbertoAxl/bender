@@ -99,7 +99,7 @@ app.post('/auth/', async function (req, res) {
 })
 
 app.post('/log/', async function (req, res) {
-  let version = 'dev'
+  let version = 'prod'
   if (version == 'prod') {
     try {
       res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
