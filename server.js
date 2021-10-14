@@ -4,6 +4,7 @@ const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 const listarProdutosAPI = require('./apis/listarProdutosPorSKU')
 const removerImagemAPI = require('./apis/removerImagemPorSKU')
+const gerarCategorias = require('./apis/gerarCategorias')
 let cookieParser = require('cookie-parser')
 let app = express();
 app.use(express.static('./'))
@@ -100,7 +101,7 @@ app.post('/auth/', async function (req, res) {
 
 app.post('/log/', async function (req, res) {
   let version = 'prod'
-  if (version == 'prod') {
+  if (version === 'prod') {
     try {
       res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
     } catch (e) {
@@ -132,4 +133,9 @@ app.post('/removerImagem/', async function (req, res) {
     res.send(await removerImagemAPI.removerImagem(req.body.sku, req.body.user))
   } catch (e) {
   }
+})
+
+app.get('/listaCategorias/', async function (req, res) {
+  let a = await gerarCategorias.main()
+  res.send(a)
 })

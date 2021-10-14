@@ -57,6 +57,30 @@ async function Remover() {
         setTimeout(() => element.style.display = "table", 1200)
         resposta = resposta.replace(/","/g, '')
         lista.innerHTML = resposta.substring(2).slice(0, -2)
+    }
+}
 
+async function gerarLista() {
+    const response = await fetch('../../listaCategorias/', {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    let data = await response.json()
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = {
+        Sheets: {
+            'Categorias': worksheet
+        },
+        SheetNames: ['Categorias']
+    }
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    console.log(excelBuffer);
+    saveAsExcel(excelBuffer, 'Categorias.xlsx');
+    function saveAsExcel(buffer, filename) {
+        const data = new Blob([buffer], { type: 'application/vnd.openxmlformats—officedocument.spreadsheetml.sheet;charset=UTF-8' })
+        saveAs(data, filename)
     }
 }
