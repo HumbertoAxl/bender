@@ -19,17 +19,24 @@ body {
     }
 
     .container__title {
-        padding-top: 40px;
+        padding-top: 10px;
         text-align: center;
     }
 
-    h2 {
+    .imgLogo {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-top: 0px;
+    }
+
+    h3 {
         margin: 0;
     }
 
     .container__title span {
         font-weight: 700;
-        font-size: 1.1em;
+        font-size: 1.05em;
     }
 
     .info {
@@ -65,7 +72,7 @@ body {
 
     .loginBox {
         font-weight: 600;
-        padding: 30px 30px 25px 30px;
+        padding: 20px 30px 25px 30px;
  
     }
     
