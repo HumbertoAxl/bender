@@ -23,6 +23,5 @@ exports.adicionar = async function (idKit, idProduto, quantidadeProduto, precoPr
             .then(res => resposta.push(res.status))
             .catch(err => console.error('error: ' + err));
     }
-    console.log(resposta)
     return resposta
 }

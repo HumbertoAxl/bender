@@ -1,11 +1,12 @@
-let express = require('express');
-let bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
 const bendermail2 = require('./monkey-modules/bender-mail2/bender-mail2');
 const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 const listarProdutosAPI = require('./apis/listarProdutosPorSKU')
 const removerImagemAPI = require('./apis/removerImagemPorSKU')
 const gerarCategorias = require('./apis/gerarCategorias')
 const adicionarProdutosAoKit = require('./apis/adicionarProdutosAoKit')
+const pegarInfoKit = require('./apis/pegarInfoKit')
 let cookieParser = require('cookie-parser')
 let app = express();
 app.use(express.static('./'))
@@ -138,4 +139,31 @@ app.get('/listaCategorias/', async function (req, res) {
 app.post('/KitsVTEX/', async function (req, res) {
   let a = await adicionarProdutosAoKit.adicionar(req.body.idKit, req.body.idProduto, req.body.quantidadeProduto, req.body.precoProduto)
   res.send(a)
+})
+
+app.post('/pegarInfoKit/', async function (req, res) {
+  let infoKits = await pegarInfoKit.pegarInfo(req.body.idKit)
+  // console.log(infoKits)
+  let tabelaKits = [], sku = [], quantidadeProduto = [], precos = [], teste = []
+  let quantidadeSKU = infoKits.length
+  let j = 1
+  if (infoKits) {
+    for (let i = 0; i < infoKits.length; i++) {
+      sku.push(infoKits[i].StockKeepingUnitId)
+      quantidadeProduto.push(infoKits[i].Quantity)
+      precos.push(infoKits[i].UnitPrice)
+    }
+    tabelaKits = await listarProdutosAPI.listarProdutosPorSKU(sku, quantidadeSKU, quantidadeProduto)
+    tabelaKits = tabelaKits.toString()     
+    tabelaKits = tabelaKits.split('<td><a')
+    for (let i = 0; i < sku.length; i++) {
+      console.log(tabelaKits)
+      tabelaKits.splice(j, 0, `<td>${precos[i]}</td><td><a`)
+      j = j + 2
+    }
+    tabelaKits.join(',')
+    res.send(tabelaKits)
+  } else {
+    res.sendStatus(400)
+  }
 })

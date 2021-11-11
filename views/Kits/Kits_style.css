@@ -26,7 +26,7 @@ body {
     justify-content: center;
     font-weight: 600;
     margin: 30px 15px 30px 15px;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     color: #EB6A18;
 }
 
@@ -140,7 +140,7 @@ table {
     margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 800px;
+    width: 900px;
 }
 
 table td, table th {
@@ -166,17 +166,21 @@ table th {
     color: white;
 }
 
-table th, table tr{
+table th, table tr {
     text-align: center;
 }
 
 #info-kit {
-    color:#EB6A18;
+    color: #EB6A18;
     margin-left: 26px;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#btnKit {
+    height: 25px;
+    width: 75px;
 }

@@ -74,3 +74,30 @@ async function subirProdutos() {
         }
     }
 }
+
+async function visualizarKit() {
+    let idKit = document.querySelector('#kitID').value.trim()
+    if (idKit) {
+        const response = await fetch('../../pegarInfoKit/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idKit: idKit })
+        });
+        console.log(response)
+        if (!response.ok) {
+            sendMessage("Kit não encontrado", "error", 2000)
+        } else {
+            let element = document.querySelector('body > div:nth-child(4) > table')
+            let lista = document.querySelector('body > div:nth-child(4) > table > tbody')
+            sendMessage("Operação realizada com sucesso!", "success", 2000)
+            let resposta = await response.text()
+            element.style.display = "table";
+            resposta = resposta.replace(/","/g,'')
+            resposta = resposta.replace(/,/g,'')
+            lista.innerHTML = resposta.substring(2).slice(0, -2)
+        }
+    }
+}
