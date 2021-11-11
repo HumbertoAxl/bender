@@ -143,8 +143,7 @@ app.post('/KitsVTEX/', async function (req, res) {
 
 app.post('/pegarInfoKit/', async function (req, res) {
   let infoKits = await pegarInfoKit.pegarInfo(req.body.idKit)
-  // console.log(infoKits)
-  let tabelaKits = [], sku = [], quantidadeProduto = [], precos = [], teste = []
+  let tabelaKits = [], sku = [], quantidadeProduto = [], precos = []
   let quantidadeSKU = infoKits.length
   let j = 1
   if (infoKits) {

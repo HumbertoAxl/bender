@@ -77,6 +77,10 @@ async function subirProdutos() {
 
 async function visualizarKit() {
     let idKit = document.querySelector('#kitID').value.trim()
+    let element = document.querySelector('body > div:nth-child(4) > table')
+    let lista = document.querySelector('body > div:nth-child(4) > table > tbody')
+    tHide(element, 200)
+    sendMessage('Enviando solicitação...', "info", null)
     if (idKit) {
         const response = await fetch('../../pegarInfoKit/', {
             method: 'POST',
@@ -90,14 +94,13 @@ async function visualizarKit() {
         if (!response.ok) {
             sendMessage("Kit não encontrado", "error", 2000)
         } else {
-            let element = document.querySelector('body > div:nth-child(4) > table')
-            let lista = document.querySelector('body > div:nth-child(4) > table > tbody')
             sendMessage("Operação realizada com sucesso!", "success", 2000)
             let resposta = await response.text()
-            element.style.display = "table";
-            resposta = resposta.replace(/","/g,'')
-            resposta = resposta.replace(/,/g,'')
+            tShow(element, 'table')
+            resposta = resposta.replace(/","/g,'').replace(/,/g,'')
             lista.innerHTML = resposta.substring(2).slice(0, -2)
         }
+    } else {
+        sendMessage("Campo vazio!", "info", 1000)
     }
 }

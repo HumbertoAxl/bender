@@ -16,6 +16,6 @@ exports.pegarInfo = async function (idKit) {
     await fetch(url, options)
         .then(res => res.json())
         .then(json => resposta = json)
-        .catch(err => console.error('error:' + err));
+        .catch(err => resposta = false);
     return resposta
 }

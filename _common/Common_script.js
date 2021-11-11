@@ -25,11 +25,11 @@ async function checkCookies() {
                 default: alert('Página não rastreada')
             }
             if (url.includes('Menu/menu')) {
-                let dataUpdate = new Date('2021-11-11T13:32:00');
+                let dataUpdate = new Date('2021-11-11T14:04:00');
                 let dataUltimoAcesso = new Date(Cookies.get('UltimoAcesso'))
                 if (dataUltimoAcesso == 'Invalid Date') { dataUltimoAcesso = new Date('2021-01-01T00:00:00') }
                 if (dataUltimoAcesso < dataUpdate) {
-                    sendMessage('Atualização 0.91.1 ✅', 'info', null, false, '', '<b>NOVO: </b>Agora é possível visualizar os kits pelo meio do ID!<br><br><i>Atualização 0.91.0</i> ⬇️<br><br><b>NOVO: </b> Kits VTEX - Insira produtos nos Kits de maneira fácil, rápida e eficiente!<br><b>Em breve: </b>Visualização de produtos nos kits<br><b>Remoção: </b>Email SAC não está mais dentro dos planos do Bender, contudo estamos conversando com parceiros para a realização do mesmo.<br><br><b>Oferecimento: Monkey Dev 🐒 e associados.</b><br><br><span style="font-size:10">Em caso de uso não permitido da marca © Monkey Corporation e de seus associados, será cobrada a multa de 300.000* bananas por dia, até a resolução do conflito.<br>* Valores podem alterar conforme imposto em justiça e a qualidade da safra.</span>', 'Nice!')
+                    sendMessage('Atualização 0.91.2 ✅', 'info', null, false, '', '<b>Hotfix:</b> Kits VTEX<br><br><i>Atualização 0.91.1</i> ⬇️<br><br><b>NOVO: </b>Agora é possível visualizar os kits pelo meio do ID!<br><br><i>Atualização 0.91.0</i> ⬇️<br><br><b>NOVO: </b> Kits VTEX - Insira produtos nos Kits de maneira fácil, rápida e eficiente!<br><b>Em breve: </b>Visualização de produtos nos kits<br><b>Remoção: </b>Email SAC não está mais dentro dos planos do Bender, contudo estamos conversando com parceiros para a realização do mesmo.<br><br><b>Oferecimento: Monkey Dev 🐒 e associados.</b><br><br><span style="font-size:10">Em caso de uso não permitido da marca © Monkey Corporation e de seus associados, será cobrada a multa de 300.000* bananas por dia, até a resolução do conflito.<br>* Valores podem alterar conforme imposto em justiça e a qualidade da safra.</span>', 'Nice!')
                 }
                 else {
                     console.log('Updated')
@@ -53,9 +53,9 @@ function Hide(Elemento) {
     Elemento.style.display = "none"
 }
 
-function tShow(Elemento, Timer = 1000) {
+function tShow(Elemento, TipoDisplay = "block", Timer = 1000) {
     Elemento.classList.add("transition");
-    setTimeout(() => Elemento.style.display = "block", Timer);
+    setTimeout(() => Elemento.style.display = TipoDisplay, Timer);
     setTimeout(() => Elemento.classList.remove("transition"), 1000);
 }
 
