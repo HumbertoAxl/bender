@@ -36,7 +36,9 @@ exports.auth = async function (email, senha) {
     });
     await transporter.verify().then(function (value) {
         status = 200
+        console.log(value)
     }, function (erro) {
+        console.log(erro)
         status = erro.responseCode
     });
     return status

@@ -5,6 +5,7 @@ const benderSheets = require('./monkey-modules/bender-sheets/bender-sheets')
 const listarProdutosAPI = require('./apis/listarProdutosPorSKU')
 const removerImagemAPI = require('./apis/removerImagemPorSKU')
 const gerarCategorias = require('./apis/gerarCategorias')
+const adicionarProdutosAoKit = require('./apis/adicionarProdutosAoKit')
 let cookieParser = require('cookie-parser')
 let app = express();
 app.use(express.static('./'))
@@ -100,13 +101,7 @@ app.post('/auth/', async function (req, res) {
 })
 
 app.post('/log/', async function (req, res) {
-  let version = 'prod'
-  if (version === 'prod') {
-    try {
-      res.sendStatus(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
-    } catch (e) {
-    }
-  }
+  res.send(await logLogin(req.body.email, req.body.data, req.body.horario, req.body.caminho, req.body.tabela))
 })
 
 async function logLogin(email, data, horario, caminho, tabela) {
@@ -137,5 +132,10 @@ app.post('/removerImagem/', async function (req, res) {
 
 app.get('/listaCategorias/', async function (req, res) {
   let a = await gerarCategorias.main()
+  res.send(a)
+})
+
+app.post('/KitsVTEX/', async function (req, res) {
+  let a = await adicionarProdutosAoKit.adicionar(req.body.idKit, req.body.idProduto, req.body.quantidadeProduto, req.body.precoProduto)
   res.send(a)
 })

@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Bender | Kits VTEX</title>
+    <link rel="icon" href="../../_common/Icon.png">
+    <link rel='stylesheet' type='text/css' href='Kits_style.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container">
+        <div id="menu">
+            <div id = "info-kit">
+                <label>ID do Kit:<input id="kitID" name="kitID" type="number" autocomplete="off"></label>
+            </div>
+            <div class="box">
+                <div class="produtos">
+                    <label>Produto 1:<input id="prod1" name="prod1" type="number" autocomplete="off" /></label>
+                </div>
+                <div class="quantidade">
+                    <label>Qtd:<input id="quant1" name="quant1" type="number" autocomplete="off" /></label>
+                </div>
+                <div class="preco">
+                    <label>Preço:<input id="preco1" name="preco1" type="number" autocomplete="off" /></label>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div id="botoes">
+            <button onclick="parent.location='../Menu/menu.html'">Voltar</a></button>
+            <button onclick="Remover()">Remover</button>
+            <button onclick="Adicionar()">Adicionar</button>
+            <button onclick="subirProdutos()">Subir</button>
+        </div>
+    </div>
+    <div id="resultado">
+        <span id="resultadoCopiar" onclick="CopiarResultado()">Clique aqui para copiar o resultado</span>
+    </div>
+    <textarea id="textResultado" style="height: 0px; width: 0px; padding: 0; margin: 0;"></textarea>
+    <div>
+        <table>
+            <thead>
+                <th>Imagem</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Itens</th>
+                <th>Link</th>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <body onload="checkCookies()"></body>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="../../_common/Common_script.js"></script>
+    <script src="Kits_script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="../../monkey-modules/tratarData/tratarData.js"></script>
+</body>
+
+
+</html>

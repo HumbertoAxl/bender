@@ -1,4 +1,5 @@
 async function checkCookies() {
+    Cookies.remove('seenUpdate0.8')
     let check = Cookies.get('email')
     let url = window.location.href
     try {
@@ -6,27 +7,35 @@ async function checkCookies() {
             document.getElementsByTagName("BODY")[0].style.display = "block";
             switch (true) {
                 case url.includes('Menu'): await logBender('Menu')
-                break
+                    break
                 case url.includes('EmailSAC'): await logBender('EmailSAC')
-                break
+                    break
                 case url.includes('InserirMarca'): await logBender('InserirMarca')
-                break
+                    break
                 case url.includes('TestarHTML'): await logBender('TestarHTML')
-                break
+                    break
                 case url.includes('Drive'): await logBender('Drive')
-                break
+                    break
                 case url.includes('LinkCarrinho'): await logBender('LinkCarrinho')
-                break
+                    break
                 case url.includes('OutrasFuncoes'): await logBender('OutrasFuncoes')
-                break
-                default: console.log('erro')
+                    break
+                case url.includes('Kits'): await logBender('Kits')
+                    break
+                default: alert('Página não rastreada')
             }
-            if (window.location.href.includes('Menu/menu')) {
-                if (!Cookies.get('seenUpdate0.8')) {
-                    sendMessage('Atualização 0.8 ✅', 'info', null, false, '', '<b>NOVO: </b> Tabela com informações dos produtos colocados em "Gerar Link"<br><b>NOVO: </b>Agora você poderá ver o que atualizou no Bender a cada versão!<br>Melhorias e bugfixes<br><b>Oferecimento:</b> Bananas do seu Didico 🍌', 'Nice!')
-                    Cookies.set('seenUpdate0.8', true, { expires: 365 })
+            if (url.includes('Menu/menu')) {
+                let dataUpdate = new Date('2021-11-11T08:50:00');
+                let dataUltimoAcesso = new Date(Cookies.get('UltimoAcesso'))
+                if (dataUltimoAcesso == 'Invalid Date') { dataUltimoAcesso = new Date('2021-01-01T00:00:00') }
+                if (dataUltimoAcesso < dataUpdate) {
+                    sendMessage('Atualização 0.91.0 ✅', 'info', null, false, '', '<b>NOVO: </b> Kits VTEX - Insira produtos nos Kits de maneira fácil, rápida e eficiente!<br><b>Em breve: </b>Visualização de produtos nos kits<br><b>Remoção: </b>Email SAC não está mais dentro dos planos do Bender, contudo estamos conversando com parceiros para a realização do mesmo.<br><br><b>Oferecimento: Monkey Dev 🐒 e associados.</b><br><br><span style="font-size:10">Em caso de uso não permitido da marca © Monkey Corporation e de seus associados, será cobrada a multa de 300.000* bananas por dia, até a resolução do conflito.<br>* Valores podem alterar conforme imposto em justiça e a qualidade da safra.</span>', 'Nice!')
+                }
+                else {
+                    console.log('Updated')
                 }
             }
+            Cookies.set('UltimoAcesso', `${pegarAno()}-${pegarMes()}-${pegarDia()}T${pegarHora()}:${pegarMinutos()}:${pegarSegundos()}`)
         } else {
             window.location.href = '../../'
         }
@@ -79,21 +88,24 @@ function tratarCaracteresEspeciais(Palavras) {
 }
 
 async function logBender(pagina) {
-    const response = await fetch('../../log/', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: Cookies.get('email'),
-            data: `${pegarDia()}/${pegarMes()}/${pegarAno()}`,
-            horario: `${pegarHora()}:${pegarMinutos()}`,
-            caminho: pagina,
-            tabela: 'Entradas'
-        })
-    });
-    if (!response.ok) {
-        console.log('Erro')
+    let version = 'prod'
+    if (version === 'prod') {
+        const response = await fetch('../../log/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: Cookies.get('email'),
+                data: `${pegarDia()}/${pegarMes()}/${pegarAno()}`,
+                horario: `${pegarHora()}:${pegarMinutos()}`,
+                caminho: pagina,
+                tabela: 'Entradas'
+            })
+        });
+        if (!response.ok) {
+            console.log('Erro')
+        }
     }
 }
