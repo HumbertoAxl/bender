@@ -17,7 +17,7 @@ function Testar() {
                 codigosHTML = codigosHTML.replace('SEPARADORHTML','<hr><h3 style="color:white">Tabela '+i+':</h3>')
                 }
                 document.getElementById('testarHTML').innerHTML = '<h3 style="color:white">Tabela 1:</h3>'+codigosHTML
-                tShow(document.getElementById('testarHTML'), 999)
+                tShow(document.getElementById('testarHTML'), 'block', 999)
             } else {
                 sendMessage('Código inserido com sucesso', 'success')
                 let codigosHTML = document.getElementById('codigo').value
@@ -26,7 +26,7 @@ function Testar() {
                 codigosHTML = codigosHTML.replace('SEPARADORHTML','</div><hr><h3>HTML '+i+':</h3><div class="testarHTML">')
                 }
                 document.getElementById('testarHTML').innerHTML = '<div class="testarHTML"><h3>HTML 1:</h3>'+codigosHTML
-                tShow(document.getElementById('testarHTML'), 999)
+                tShow(document.getElementById('testarHTML'), 'block', 999)
             }
         }
     }

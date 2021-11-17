@@ -25,11 +25,11 @@ async function checkCookies() {
                 default: alert('Página não rastreada')
             }
             if (url.includes('Menu/menu')) {
-                let dataUpdate = new Date('2021-11-17T16:32:00');
+                let dataUpdate = new Date('2021-11-17T17:05:00');
                 let dataUltimoAcesso = new Date(Cookies.get('UltimoAcesso'))
                 if (dataUltimoAcesso == 'Invalid Date') { dataUltimoAcesso = new Date('2021-01-01T00:00:00') }
                 if (dataUltimoAcesso < dataUpdate) {
-                    sendMessage('Atualização 0.91.21', 'info', null, false, '', '<b>Hotfix:</b> Testar HTML - Agora as opções funcionam corretamente<br><br><hr><div style="text-align: center; margin-bottom: 10px;"><b>Aviso</b></div></b>Email SAC não está mais dentro dos planos do Bender, contudo estamos conversando com parceiros para a realização do mesmo.<hr><br><b>Oferecimento: Monkey Dev e associados.</b><br><br><span style="font-size:10">Em caso de uso não permitido da marca © Monkey Corporation e de seus associados, será cobrada a multa de 300.000* bananas por dia, até a resolução do conflito.<br>* Valores podem alterar conforme imposto em justiça e a qualidade da safra.</span>', 'Nice!')
+                    sendMessage('Atualização 0.91.22', 'info', null, false, '', '<b>Hotfix: </b>Correção de um parâmetro de uma função que atrapalhava o funcionamento do Testar HTML<br><br><hr><div style="text-align: center; margin-bottom: 10px;"><b>Aviso</b></div></b>Email SAC não está mais dentro dos planos do Bender, contudo estamos conversando com parceiros para a realização do mesmo.<hr><br><b>Oferecimento: Monkey Dev e associados.</b><br><br><span style="font-size:10">Em caso de uso não permitido da marca © Monkey Corporation e de seus associados, será cobrada a multa de 300.000* bananas por dia, até a resolução do conflito.<br>* Valores podem alterar conforme imposto em justiça e a qualidade da safra.</span>', 'Nice!')
                 }
                 else {
                     console.log('Updated')
@@ -46,7 +46,7 @@ async function checkCookies() {
 
 function tHide(Elemento, Timer = 1000) {
     Elemento.classList.add("transition");
-    setTimeout(() => Elemento.style.display = "none", Timer)
+    setTimeout(() => Elemento.style.display = 'none', Timer)
 }
 
 function Hide(Elemento) {
