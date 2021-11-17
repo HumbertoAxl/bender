@@ -156,7 +156,6 @@ app.post('/pegarInfoKit/', async function (req, res) {
     tabelaKits = tabelaKits.toString()     
     tabelaKits = tabelaKits.split('<td><a')
     for (let i = 0; i < sku.length; i++) {
-      console.log(tabelaKits)
       tabelaKits.splice(j, 0, `<td>${precos[i]}</td><td><a`)
       j = j + 2
     }
