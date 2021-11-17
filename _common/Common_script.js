@@ -25,7 +25,7 @@ async function checkCookies() {
                 default: alert('Página não rastreada')
             }
             if (url.includes('Menu/menu')) {
-                let dataUpdate = new Date('2021-11-17T16:24:00');
+                let dataUpdate = new Date('2021-11-17T16:32:00');
                 let dataUltimoAcesso = new Date(Cookies.get('UltimoAcesso'))
                 if (dataUltimoAcesso == 'Invalid Date') { dataUltimoAcesso = new Date('2021-01-01T00:00:00') }
                 if (dataUltimoAcesso < dataUpdate) {
