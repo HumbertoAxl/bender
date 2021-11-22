@@ -35,7 +35,7 @@ async function checkCookies() {
                     console.log('Updated')
                 }
             }
-            Cookies.set('UltimoAcesso', `${pegarAno()}-${pegarMes()}-${pegarDia()}T${pegarHora()}:${pegarMinutos()}:${pegarSegundos()}`)
+            Cookies.set('UltimoAcesso', `${pegarAno()}-${pegarMes()}-${pegarDia()}T${pegarHora()}:${pegarMinutos()}:${pegarSegundos()}`, {expires: 365})
         } else {
             window.location.href = '../../'
         }
