@@ -1,1 +1,1 @@
-Site utilizado para realizar diversas tarefas recorrentes da turma do Vale do Psirico
+Site utilizado para realizar diversas tarefas recorrentes do cadastro de produtos
